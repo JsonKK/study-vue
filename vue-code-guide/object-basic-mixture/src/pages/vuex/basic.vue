@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="animated bounceInDown">
         <h5>引入store的使用</h5>
         <p>{{message}}</p>
         <p>{{count}}</p>
@@ -7,16 +7,18 @@
         <button @click="_addPlus">+Plus</button>
         <!-- 使用荷载的方式触发addPlus -->
         <button @click="$store.dispatch('addPlus')">使用荷载的方式触发addPlus</button>
+        <countdown time="210"></countdown>
     </div>
     
 </template>
  
 <script>
     import {mapState,mapMutations,mapGetters,mapActions} from 'vuex';
+    import countdown from '../../components/countdown';
     export default {
         name: '',
         props:{},
-        components: {},
+        components: {countdown},
         data(){
             return{
                 countStep : 1
