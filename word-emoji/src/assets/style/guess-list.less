@@ -1,11 +1,14 @@
+@listpadding : 30px;
+@hintwidth : 40px;
 .contain{
     height: 100%;
     overflow: hidden;
     .list{
         height: 70%;
         // background-color: yellowgreen;
-        padding: 30px 30px 0px 30px;
-        
+        padding: @listpadding;
+        padding-bottom: 0px;
+        position: relative;
         .ul{
             display: flex;
             height: 100%;
@@ -41,6 +44,44 @@
                 
             }
         }
+
+        .list-box{
+            position: absolute;
+            max-height: 100%;
+            bottom: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: calc(100% - 2*@listpadding);
+            .row{
+                width: 100%;
+                overflow: hidden;
+                .item{
+                    float: left;
+                    width: 20%;
+                    text-align: center;
+                    .min-box{
+                        background-color: #f1f3f4;
+                        margin: 16px;
+                        border-radius: 10px;
+                        .emoji {
+                            font-size: 80px;
+                        }
+                        .title{
+                            font-size: 18px;
+                            max-width: 150px;
+                            margin: 0 auto;
+                            white-space: nowrap;
+                            padding: 0 10px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            line-height: 42px;
+                        } 
+                    }
+                }
+            }
+            
+        }
+
         
     }
     .search{
@@ -48,6 +89,22 @@
         background-color: blanchedalmond;
         .search-box{
             padding: 30px;
+        }
+        .hint-list{
+            width: 100%;
+            overflow: hidden;
+            text-align: center;
+            height:@hintwidth;
+            margin: @hintwidth 0;
+            li.face{
+                display: inline-block;
+                font-size: @hintwidth/2;
+                margin: 0 auto;
+                width:@hintwidth;
+                height:@hintwidth;
+                line-height:@hintwidth;
+                cursor: pointer;
+            }
         }
     }
 }
