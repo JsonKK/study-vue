@@ -19,6 +19,7 @@ module.exports = {
     outputDir : 'dist',
     //配置服务器和代理
     devServer: {
+        host : '0.0.0.0',
         proxy: 'http://192.168.0.21:4000'
     }
 }
