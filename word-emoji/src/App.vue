@@ -34,4 +34,13 @@ export default {
     margin: 0 auto;
     background-color: #ffffff;
 }
+.vertical-center-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ivu-modal{
+        top: -50px;
+    }
+}
 </style>

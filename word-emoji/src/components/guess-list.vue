@@ -43,6 +43,16 @@
                 </row>
             </div>
         </section>
+        <Modal
+            title="提示"
+            v-model="showHint"
+            class-name="vertical-center-modal"
+            :ok-text="hintObj.okText"
+            :cancel-text="hintObj.cancelText">
+            <p style="color:#212121;font-size:22px;line-height:44px;">
+                <Icon :color="`#f60f60`" type="ios-information-circle"></Icon>{{hintObj.content}}
+            </p>
+        </Modal>
     </div>
 </template>
  
@@ -63,6 +73,8 @@ export default {
             openAnimate : true,
             animateIndex : -1,
             hintList : [],
+            showHint : false,
+            hintObj : {},
             popList : [
                 {
                     content:'这都不会，你是小笨蛋吗',
@@ -94,7 +106,7 @@ export default {
     },
     mounted() {
         this.initHintList();
-        // console.log(emojiData);
+        console.log(emojiData['flag-at']);
     },
     computed: {},
     methods: {
@@ -195,7 +207,9 @@ export default {
                 self.word = item.key;
                 self.$refs.search.focus();
             }})
-            this.$Modal.confirm(config);
+            this.hintObj = config;
+            this.showHint = true;
+            // this.$Modal.confirm(config);
         }
     },
     watch: {},
@@ -205,5 +219,6 @@ export default {
  
 <style lang="less" scoped>
 @import "../assets/style/guess-list.less";
+
 </style>
  
