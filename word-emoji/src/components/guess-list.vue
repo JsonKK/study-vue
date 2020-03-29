@@ -48,7 +48,8 @@
             v-model="showHint"
             class-name="vertical-center-modal"
             :ok-text="hintObj.okText"
-            :cancel-text="hintObj.cancelText">
+            :cancel-text="hintObj.cancelText"
+            @on-ok="okText(hintObj)">
             <p style="color:#212121;font-size:22px;line-height:44px;">
                 <Icon :color="`#f60f60`" type="ios-information-circle"></Icon>{{hintObj.content}}
             </p>
@@ -168,6 +169,9 @@ export default {
         updated(){
             
         },
+        okText(item){
+            item.onOk();
+        },
         // 删除展示数据
         delCacheData(item={}){
             let index = _.findIndex(cacheList,{key:item.word});
@@ -206,7 +210,7 @@ export default {
             Object.assign(config,{onOk(){
                 self.word = item.key;
                 self.$refs.search.focus();
-            }})
+            }},{key:item.key})
             this.hintObj = config;
             this.showHint = true;
             // this.$Modal.confirm(config);
