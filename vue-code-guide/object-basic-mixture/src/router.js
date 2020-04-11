@@ -11,6 +11,7 @@ import menu from './pages/base/menu';
 import footer from './pages/base/footer';
 import users from '@/pages/start/users';
 import transition from '@/pages/start/transition.vue';
+import modelInput from '@/pages/start/model-input.vue';
 import Page404 from '@/pages/error/404.vue';
 
 import vuexIndex from '@/pages/vuex/index.vue';
@@ -30,7 +31,8 @@ const routes = [
             // /:users/:sex => http://192.168.0.21:4000/#/wosssss/wowen?id=123&name=jsonKK
             // :users/:sex => http://192.168.0.21:4000/#/start/wosssss/wowen?id=123&name=jsonKK
             { path: ':users/:sex',component:users},
-            { path: 'transition',component:transition}
+            { path: 'transition',component:transition},
+            {path: 'model_input',component:modelInput}
         ]
     },
     {
