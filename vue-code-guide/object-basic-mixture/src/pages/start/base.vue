@@ -20,6 +20,9 @@
             <router-link :to="{path:'/agogo',query:{id:123,name:'jsonKK'}}">other root</router-link>
         </li>
         <li>
+            <router-link :to="{path:'/start/model_input'}">model input</router-link>
+        </li>
+        <li>
             <router-link :to="{path:'/start/transition',query:{id:123,name:'jsonKK'}}">transition</router-link>
         </li>
       </ul>
