@@ -1,0 +1,105 @@
+.img-upload-box .upload-list {
+    margin-bottom: 0px;
+}
+.max-row-width .ivu-row > .ivu-col-span-24{
+    max-width: 1040px;
+}
+.max-row-width .ivu-row > .ivu-col-span-12 {
+  max-width: 520px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.max-row-width .ivu-row>.ivu-col-span-12 .ivu-col-span-12 {
+    padding: 0;
+}
+.max-row-width .ivu-row {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+.max-row-width .ivu-row .ivu-row {
+  margin:0;
+}
+.form-box.max-row-width>.ivu-row>.ivu-col-span-12{
+    max-width: 520px;
+}
+//设置并排两列的最大宽度end
+//过滤框的搜索按钮优化
+.filter-box-short{
+    display:flex;
+    align-items: center;
+}
+.filter-box-short>.ivu-form{
+    position: relative;
+}
+.filter-box-short>.ivu-form:after{
+    position: absolute;
+    right: -100px;
+    top: 0;
+    bottom: 6px;
+    content: '';
+    width: 1px;
+
+    background: #e0e0e0;
+    margin-left: -20px;
+}
+.right-btns {
+
+    margin-top: -6px;
+    margin-left: 100px;
+}
+//输入框宽度
+.filter-box-short .input-width{
+    width: 345px;
+}
+//输入框范围宽度
+.w400{
+    width: 400px!important;
+}
+.filter-box-short .ivu-input-number{
+   width: 104px!important;
+}
+
+//过滤框的搜索按钮优化end
+.cards > .ivu-card-body{
+//  max-width: 1040px;
+}
+.ivu-card-body>.opera-box{
+    max-width: 1040px;
+}
+.text-info-top{
+  line-height: 20px;
+  color: #bbbec4;
+  margin-bottom: 16px;
+  margin-left: 26px;
+  white-space: nowrap;
+  color: #f58a44;
+}
+.text-info-top:before{
+    color: #f58a44;
+      font-size: 20px;
+      line-height: 18px;
+      display: inline-block;
+      vertical-align: top;
+    font-family: "icon";
+    content: '\e91a';
+}
+.disabled-box{
+    position: relative;
+    padding-bottom: 16px;
+}
+.disabled-box:before{
+    position: absolute;
+    bottom: 19px;
+    content: '';
+    height: 1px;
+    background: #E0E0E0;
+    width: 100%;
+
+}
+.ivu-layout.ivu-layout-has-sider>.content-layout{
+    overflow-x: auto;
+}
+.ivu-layout.ivu-layout-has-sider>.content-layout>.ivu-layout-content{
+    min-width: 1160px;
+    overflow-x: auto;
+}
