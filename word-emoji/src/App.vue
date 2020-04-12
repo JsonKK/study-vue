@@ -1,37 +1,36 @@
 <template>
-    <div id="app">
-        <section class="content">
-            <guess-list></guess-list>
-        </section>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <div>
+      <p>
+        If ViewUI is successfully added to this project, you'll see an
+        <code v-text="'<Button>'"></code>
+        below
+      </p>
+      <Button type="primary">Button</Button>
     </div>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  </div>
 </template>
 
 <script>
-import guessList from './components/guess-list';
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-    name: 'App',
-    components: {
-        guessList
-    }
+  name: 'app',
+  components: {
+    HelloWorld
+  }
 }
 </script>
 
-<style lang="less">
+<style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    background-color: #ccefde;
-}
-.content{
-    min-width: 980px;
-    width: 65%;
-    box-shadow: 0 2px 10px #333333;
-    height: 100vh;
-    margin: 0 auto;
-    background-color: #ffffff;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
