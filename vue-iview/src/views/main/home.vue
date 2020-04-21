@@ -24,9 +24,6 @@
                     yield '堂';
                 }
                 let ykt = YKT();
-                console.log(ykt.next());
-                console.log(ykt.next());
-                console.log(ykt.next());
             }
         },
         watch : {

@@ -19,8 +19,15 @@ let BaseRouter = [
                     title : '首页'
                 },
                 component : ()=>import('@/views/main/home')
+            },
+            {
+                path : '3dBanner',
+                name : 'main3dBanner',
+                mate : {
+                    title : '3dbanner图'
+                },
+                component : ()=>import('@/views/main/3dBanner')
             }
-            
         ]
     }
 ];

@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
-            <Menu :active-name="$route.name" theme="dark" width="auto" accordion>
+            <Menu :active-name="$route.name" theme="dark" width="auto" @on-select="selectMenu" accordion>
                 <MenuItem :name="item.name" v-for="(item,index) in menus" :key="index">{{item.mate && item.mate.title}}</MenuItem>
                 <!-- <Submenu name="1">
                     <template slot="title">
@@ -55,6 +55,13 @@
                     }
                 });
                 this.menus = arr;
+            },
+            //选择菜单
+            selectMenu(name){
+                if(this.$route.name === name){
+                    return;
+                }
+                this.$router.push({name});
             }
         },
         watch : {
