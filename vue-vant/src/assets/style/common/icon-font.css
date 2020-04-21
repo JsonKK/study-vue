@@ -1,0 +1,101 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'icon-font';
+	src: url(../../fonts/icon.ttf)  format('truetype');
+}
+.icon-pre:before,.icon-pre:after{
+	font-family: icon-font;
+}
+/*图标添加在这里*/
+.icon-back:before{
+	content: '\e903';
+}
+.icon-weixin:before{
+	content: '\e901';
+}
+.icon-weibo:before{
+	content: '\e900';
+}
+.icon-qq:before{
+	content: '\e902';
+}
+.icon-eyes:before{
+	content: '\e905';
+}
+.icon-eyes-close:before{
+	content: '\e906';
+}
+.icon-search:before{
+	content: '\e904';
+}
+.icon-right-arrow:after{
+	content: '\e909';
+}
+.icon-like:before{
+	content: '\e907';
+}
+.icon-look:before{
+	content: '\e908';
+}
+.icon-commetn:before{
+	content: '\e90a';
+}
+.icon-cart:before{
+	content: '\e90b';
+}
+.icon-share:before{
+	content: '\e90c';
+}
+.icon-position:before{
+	content: '\e90d';
+}
+.icon-close:before{
+	content: '\e90e';
+}
+/*08.30新增*/
+.icon-del:before{
+	content: '\e917';
+}
+.icon-edit:before{
+	content: '\e916';
+}
+.icon-choose:before{
+	content: '\e915';
+}
+.icon-unchoose:before{
+	content: '\e918';
+}
+.icon-android:before{
+	content: '\e920';
+}
+.icon-iphone:before{
+	content: '\e921';
+}
+.icon-big-img:before{
+	content: '\e927';
+}
+.icon-small-img:before{
+	content: '\e928';
+}
+
+
+/*link*/
+.icon-more:before{
+	content: "\e936";
+}
+.icon-my:before{
+	content: "\e937";
+}
+.icon-success:before{
+	content: "\e942";
+}
+.icon-fail:before{
+	content: "\e943";
+}
+.icon-edit2:before {
+	content: '\e945';
+}
+.icon-set:before {
+	content: '\e946';
+}
+/*linkend*/
