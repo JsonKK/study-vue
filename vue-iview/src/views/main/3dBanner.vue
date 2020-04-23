@@ -29,7 +29,7 @@ export default {
                 '../../assets/images/banner/banner-policy-combine.jpg',
                 '../../assets/images/banner/banner-public-service.jpg',
             ],
-            cuts : 3
+            cuts : 10
         }
     },
     mounted() { },
@@ -43,6 +43,7 @@ export default {
 <style lang="less" scoped>
     @height: 1050px / (1920px/384px);
     @width:1050px;
+    @cuts : 10;
     #d-banner{
         width: @width;
         margin:20px auto;
@@ -59,7 +60,7 @@ export default {
         }
         ul li{
             height: @height;
-            width: 25%;
+            width: @width/@cuts;
             box-sizing: border-box;
             list-style: none;
             float: left;
@@ -67,6 +68,26 @@ export default {
             transform-style: preserve-3d;
             transform: translateZ(-@height/2);
             transition: .5s;
+            // &:last-child{
+            //     z-index: -1;
+            // }
+            .mixin (@a) when (@a < @cuts/2 ) {
+                z-index: 5;
+            }
+            .mixin2 (@a) when (@a >= @cuts/2 ) {
+                z-index: 1;
+            }
+            each(range(@cuts),{
+                // @num = @value;
+                &:nth-child(@{value}){
+                    transition-delay: @value*1*0.2s;
+                    .mixin(@value);
+                    .mixin2(@value);
+                    div.min-content{
+                        background-position: -(@width/@cuts *@value)+@width/@cuts  0;
+                    }
+                }
+            })
             div.min-content{
                 height: 100%;
                 width: 100%;
@@ -74,7 +95,6 @@ export default {
                 border: 1px solid salmon;
                 box-sizing: border-box;
                 background-size: @width auto;
-                z-index: 6;
                 &:nth-child(1){
                     bottom: @height;
                     transform:translateZ(@height/2) rotateX(90deg);
@@ -94,14 +114,12 @@ export default {
                 &:nth-child(4){
                     transform: translateZ(-@height/2);
                     background-image: url('../../assets/images/banner/banner-public-service.jpg');
-                    z-index: 5;
                 }
                 &:nth-child(5){
                     width: @height;
                     right: 100%;
                     transform:translateZ(@height/2) rotateY(-90deg);
                     transform-origin: right;
-                    z-index: 5;
                    
                 }
                 &:nth-child(6){
@@ -109,7 +127,6 @@ export default {
                     left: 100%;
                     transform:translateZ(@height/2) rotateY(90deg);
                     transform-origin: left;
-                    z-index: 5;
                     
                 }
             }
