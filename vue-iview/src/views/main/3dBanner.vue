@@ -1,18 +1,37 @@
 <template>
-    <div id="d-banner">
-        <ul>
-            <!-- <li>
-                <div class="min-content">上</div>
-                <div class="min-content">下</div>
-                <div class="min-content">前</div>
-                <div class="min-content">后</div>
-                <div class="min-content">左</div>
-                <div class="min-content">右</div>
-            </li> -->
-            <li v-for="n in cuts" :key="n">
-                <div class="min-content" v-for="min in 6" :key="min"></div>
-            </li>
-        </ul>
+    <div>
+        <InputNumber :max="50" :min="1" v-model="cuts"></InputNumber>
+        <div id="d-banner">
+            <ul>
+                <!-- <li>
+                    <div class="min-content">上</div>
+                    <div class="min-content">下</div>
+                    <div class="min-content">前</div>
+                    <div class="min-content">后</div>
+                    <div class="min-content">左</div>
+                    <div class="min-content">右</div>
+                </li> -->
+                <li v-for="n in cuts" :key="n" 
+                    :class="[`active-${activeIndex}`]"
+                    :style="`transition-delay:${(n-1)*0.1}s`"
+                >
+                    <div class="min-content" v-for="min in 6" 
+                        :key="min"
+                        :style="`background-position: -${bannerWidth/cuts*n-bannerWidth/cuts}px  0;`"
+                    >
+                    </div>
+                </li>
+            </ul>
+            <ol class="nav">
+                <li v-for="(item,index) in bannerList" :key="index" class="item" 
+                    :class="{active:index==activeIndex}"
+                    @click="move(index)"
+                >
+                    {{index+1}}
+                </li>
+            </ol>
+        </div>
+        
     </div>
 </template>
  
@@ -29,13 +48,26 @@ export default {
                 '../../assets/images/banner/banner-policy-combine.jpg',
                 '../../assets/images/banner/banner-public-service.jpg',
             ],
-            cuts : 10
+            cuts : 10,
+            bannerWidth : 1050,
+            activeIndex : 0
         }
     },
     mounted() { },
     computed: {},
-    methods: {},
-    watch: {},
+    methods: {
+        //旋转事件
+        move(index){
+            if(this.activeIndex != index){
+                this.activeIndex = index;
+            }
+        }
+    },
+    watch: {
+        cuts(value){
+            this.$forceUpdate(); 
+        }
+    },
     filters: {}
 }
 </script>
@@ -47,13 +79,13 @@ export default {
     #d-banner{
         width: @width;
         margin:20px auto;
-        // overflow: hidden;
         height:@height;
         perspective: 2*@height;
         background-color: gainsboro;
-        &:hover ul li {
-            transform: translateZ(-@height/2) rotateX(180deg);
-        }
+        position: relative;
+        // &:hover ul li {
+        //     transform: translateZ(-@height/2) rotateX(180deg);
+        // }
         ul{
             width: 100%;
             overflow:hidden;
@@ -68,31 +100,45 @@ export default {
             transform-style: preserve-3d;
             transform: translateZ(-@height/2);
             transition: .5s;
+            &.active-1{
+                transform: translateZ(-@height/2) rotateX(90deg);
+            }
+            &.active-2{
+                transform: translateZ(-@height/2) rotateX(180deg);
+            }
+            &.active-3{
+                transform: translateZ(-@height/2) rotateX(270deg);
+            }
+            &.active-4{
+                transform: translateZ(-@height/2) rotateX(360deg);
+            }
             // &:last-child{
             //     z-index: -1;
             // }
-            .mixin (@a) when (@a < @cuts/2 ) {
-                z-index: 5;
-            }
+            // .mixin (@a) when (@a < @cuts/2 ) {
+            //     z-index: @cuts*1-@a*1;
+            // }
             .mixin2 (@a) when (@a >= @cuts/2 ) {
-                z-index: 1;
+                z-index: @cuts*1-@a*1;
             }
             each(range(@cuts),{
                 // @num = @value;
                 &:nth-child(@{value}){
-                    transition-delay: @value*1*0.2s;
-                    .mixin(@value);
+                    transition-delay: @value*1*0.02s;
+                    // .mixin(@value);
                     .mixin2(@value);
-                    div.min-content{
-                        background-position: -(@width/@cuts *@value)+@width/@cuts  0;
-                    }
+                    // z-index: @cuts*1-@value*1;
+                    // div.min-content{
+                        
+                    //     background-position: -(@width/@cuts *@value)+@width/@cuts  0;
+                    // }
                 }
             })
             div.min-content{
-                height: 100%;
-                width: 100%;
+                height: @height;
+                width: @width/@cuts;
                 position:absolute;
-                border: 1px solid salmon;
+                // border: 1px solid salmon;
                 box-sizing: border-box;
                 background-size: @width auto;
                 &:nth-child(1){
@@ -112,7 +158,7 @@ export default {
                      background-image: url('../../assets/images/banner/banner-policy-combine.jpg');
                 }
                 &:nth-child(4){
-                    transform: translateZ(-@height/2);
+                    transform: translateZ(-@height/2) rotateX(-180deg);;
                     background-image: url('../../assets/images/banner/banner-public-service.jpg');
                 }
                 &:nth-child(5){
@@ -129,6 +175,30 @@ export default {
                     transform-origin: left;
                     
                 }
+            }
+        }
+    }
+    .nav{
+        position:absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        .item{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: 1px solid purple;
+            background-color: pink;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: aquamarine;
+            display: inline-block;
+            margin: 4px;
+            cursor: pointer;
+            &.active{
+                background-color: blueviolet;
+                color: #fff;
             }
         }
     }
