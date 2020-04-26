@@ -1,7 +1,9 @@
 <template>
-    <div>
-        <InputNumber :max="50" :min="1" v-model="cuts"></InputNumber>
-        <div id="d-banner">
+    <div ref="bannerBox">
+        <InputNumber :max="50" :min="1" :value="cuts" @on-change="changeNum"></InputNumber>
+        <div id="d-banner" 
+            :style="`height:${bannerHeight}px;min-width:${bannerWidth}px;transform: perspective(${2*bannerHeight}px);`"
+        >
             <ul>
                 <!-- <li>
                     <div class="min-content">上</div>
@@ -12,12 +14,18 @@
                     <div class="min-content">右</div>
                 </li> -->
                 <li v-for="n in cuts" :key="n" 
-                    :class="[`active-${activeIndex}`]"
-                    :style="`transition-delay:${(n-1)*0.1}s`"
+                    :class="[`active-${activeIndex}`,{'animate':!noMove}]"
+                    :style="{
+                        'transition-delay':`${(n-1)*0.1}s`,
+                        'height':`${bannerHeight}px`,
+                        'width':`${bannerWidth/cuts}px`,
+                        'z-index':`${n>cuts/2 ? cuts-n : 1}`,
+                        'transform': `translateZ(${-bannerHeight/2}px) rotateX(${activeIndex*90}deg)`
+                        }"
                 >
-                    <div class="min-content" v-for="min in 6" 
+                    <div class="min-content" v-for="min in 6"
                         :key="min"
-                        :style="`background-position: -${bannerWidth/cuts*n-bannerWidth/cuts}px  0;`"
+                        :style="minContentStyle({n,min})"
                     >
                     </div>
                 </li>
@@ -49,24 +57,131 @@ export default {
                 '../../assets/images/banner/banner-public-service.jpg',
             ],
             cuts : 10,
-            bannerWidth : 1050,
-            activeIndex : 0
+            bannerWidth : 950,
+            activeIndex : 0,
+            noMove : false,
+            minContentStyle({n,min}){
+                let {bannerWidth,cuts,bannerHeight} = this;
+                let style =  `background-position: -${bannerWidth/cuts*n-bannerWidth/cuts}px  0;
+                                height:${bannerHeight}px;width:${bannerWidth/cuts}px;background-size: ${bannerWidth} auto;`;
+                // &:nth-child(1){
+                //     bottom: @height;
+                //     transform:translateZ(@height/2) rotateX(90deg);
+                //     transform-origin: bottom;
+                //     background-image: url('../../assets/images/banner/banner-index-1.jpg');
+                // }
+                // &:nth-child(2){
+                //     top: @height;
+                //     transform:translateZ(@height/2) rotateX(-90deg);
+                //     transform-origin: top;
+                //     background-image: url('../../assets/images/banner/banner-index-2.jpg');
+                // }
+                // &:nth-child(3){
+                //     transform: translateZ(@height/2);
+                //      background-image: url('../../assets/images/banner/banner-policy-combine.jpg');
+                // }
+                // &:nth-child(4){
+                //     transform: translateZ(-@height/2) rotateX(-180deg);;
+                //     background-image: url('../../assets/images/banner/banner-public-service.jpg');
+                // }
+                // &:nth-child(5){
+                //     width: @height;
+                //     right: 100%;
+                //     transform:translateZ(@height/2) rotateY(-90deg);
+                //     transform-origin: right;
+                   
+                // }
+                // &:nth-child(6){
+                //     width: @height;
+                //     left: 100%;
+                //     transform:translateZ(@height/2) rotateY(90deg);
+                //     transform-origin: left;
+                    
+                // }
+                switch(min){
+                    case 1 :
+                        style += `
+                        bottom: ${bannerHeight}px;
+                        transform:translateZ(${bannerHeight/2}px) rotateX(90deg);
+                        transform-origin: bottom;
+                        `;
+                        break;
+                    case 2:
+                        style += `
+                        top: ${bannerHeight}px;
+                        transform:translateZ(${bannerHeight/2}px) rotateX(-90deg);
+                        transform-origin: top;
+                        `;
+                        break;
+                    case 3:
+                        style += `
+                        transform: translateZ(${bannerHeight/2}px);
+                        `;
+                        break;
+                    case 4:
+                        style += `
+                        transform: translateZ(-${bannerHeight/2}px) rotateX(-180deg);;
+                        `;
+                        break;
+                    case 5:
+                        style += `
+                        width: ${bannerHeight}px;
+                        right: 100%;
+                        transform:translateZ(${bannerHeight/2}px) rotateY(-90deg);
+                        transform-origin: right;
+                        `;
+                        break;
+                    case 6:
+                        style += `
+                        width: ${bannerHeight}px;
+                        left: 100%;
+                        transform:translateZ(${bannerHeight/2}px) rotateY(90deg);
+                        transform-origin: left;
+                        `;
+                        break;
+
+                }
+                return style;
+            }
         }
     },
-    mounted() { },
-    computed: {},
+    mounted() { 
+        window.onresize = this.resizeWidth;
+        this.resizeWidth();
+    },
+    computed: {
+        bannerHeight(){
+            let {bannerWidth} = this;
+            return bannerWidth / (1920/384);
+        }
+    },
     methods: {
         //旋转事件
         move(index){
             if(this.activeIndex != index){
                 this.activeIndex = index;
             }
+        },
+        //修改片数
+        changeNum(num){
+            this.noMove = true;
+            this.cuts = 0;
+            this.$nextTick(()=>{
+                this.cuts = num;
+                setTimeout(()=>{
+                    this.noMove = false;
+                },5000);
+            });
+        },
+        resizeWidth(e){
+            let box = this.$refs.bannerBox;
+            let c = Number(this.cuts);
+            this.cuts = 0;
+            this.bannerWidth = box.clientWidth;
+            this.cuts = c;
         }
     },
     watch: {
-        cuts(value){
-            this.$forceUpdate(); 
-        }
     },
     filters: {}
 }
@@ -77,10 +192,11 @@ export default {
     @width:1050px;
     @cuts : 10;
     #d-banner{
-        width: @width;
+        // width: @width;
         margin:20px auto;
-        height:@height;
+        // height:@height;
         perspective: 2*@height;
+        // transform: perspective(2*@height);
         background-color: gainsboro;
         position: relative;
         // &:hover ul li {
@@ -91,27 +207,27 @@ export default {
             overflow:hidden;
         }
         ul li{
-            height: @height;
-            width: @width/@cuts;
+            // height: @height;
+            // width: @width/@cuts;
             box-sizing: border-box;
             list-style: none;
             float: left;
             position: relative;
             transform-style: preserve-3d;
-            transform: translateZ(-@height/2);
-            transition: .5s;
-            &.active-1{
-                transform: translateZ(-@height/2) rotateX(90deg);
-            }
-            &.active-2{
-                transform: translateZ(-@height/2) rotateX(180deg);
-            }
-            &.active-3{
-                transform: translateZ(-@height/2) rotateX(270deg);
-            }
-            &.active-4{
-                transform: translateZ(-@height/2) rotateX(360deg);
-            }
+            // transform: translateZ(-@height/2);
+            transition: 1s;
+            // &.active-1{
+            //     transform: translateZ(-@height/2) rotateX(90deg);
+            // }
+            // &.active-2{
+            //     transform: translateZ(-@height/2) rotateX(180deg);
+            // }
+            // &.active-3{
+            //     transform: translateZ(-@height/2) rotateX(270deg);
+            // }
+            // &.active-4{
+            //     transform: translateZ(-@height/2) rotateX(360deg);
+            // }
             // &:last-child{
             //     z-index: -1;
             // }
@@ -126,7 +242,6 @@ export default {
                 &:nth-child(@{value}){
                     transition-delay: @value*1*0.02s;
                     // .mixin(@value);
-                    .mixin2(@value);
                     // z-index: @cuts*1-@value*1;
                     // div.min-content{
                         
@@ -135,45 +250,22 @@ export default {
                 }
             })
             div.min-content{
-                height: @height;
-                width: @width/@cuts;
+                // height: @height;
+                // width: @width/@cuts;
                 position:absolute;
                 // border: 1px solid salmon;
                 box-sizing: border-box;
-                background-size: @width auto;
                 &:nth-child(1){
-                    bottom: @height;
-                    transform:translateZ(@height/2) rotateX(90deg);
-                    transform-origin: bottom;
                     background-image: url('../../assets/images/banner/banner-index-1.jpg');
                 }
                 &:nth-child(2){
-                    top: @height;
-                    transform:translateZ(@height/2) rotateX(-90deg);
-                    transform-origin: top;
                     background-image: url('../../assets/images/banner/banner-index-2.jpg');
                 }
                 &:nth-child(3){
-                    transform: translateZ(@height/2);
-                     background-image: url('../../assets/images/banner/banner-policy-combine.jpg');
+                    background-image: url('../../assets/images/banner/banner-policy-combine.jpg');
                 }
                 &:nth-child(4){
-                    transform: translateZ(-@height/2) rotateX(-180deg);;
                     background-image: url('../../assets/images/banner/banner-public-service.jpg');
-                }
-                &:nth-child(5){
-                    width: @height;
-                    right: 100%;
-                    transform:translateZ(@height/2) rotateY(-90deg);
-                    transform-origin: right;
-                   
-                }
-                &:nth-child(6){
-                    width: @height;
-                    left: 100%;
-                    transform:translateZ(@height/2) rotateY(90deg);
-                    transform-origin: left;
-                    
                 }
             }
         }
