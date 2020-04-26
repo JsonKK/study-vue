@@ -63,41 +63,7 @@ export default {
             minContentStyle({n,min}){
                 let {bannerWidth,cuts,bannerHeight} = this;
                 let style =  `background-position: -${bannerWidth/cuts*n-bannerWidth/cuts}px  0;
-                                height:${bannerHeight}px;width:${bannerWidth/cuts}px;background-size: ${bannerWidth} auto;`;
-                // &:nth-child(1){
-                //     bottom: @height;
-                //     transform:translateZ(@height/2) rotateX(90deg);
-                //     transform-origin: bottom;
-                //     background-image: url('../../assets/images/banner/banner-index-1.jpg');
-                // }
-                // &:nth-child(2){
-                //     top: @height;
-                //     transform:translateZ(@height/2) rotateX(-90deg);
-                //     transform-origin: top;
-                //     background-image: url('../../assets/images/banner/banner-index-2.jpg');
-                // }
-                // &:nth-child(3){
-                //     transform: translateZ(@height/2);
-                //      background-image: url('../../assets/images/banner/banner-policy-combine.jpg');
-                // }
-                // &:nth-child(4){
-                //     transform: translateZ(-@height/2) rotateX(-180deg);;
-                //     background-image: url('../../assets/images/banner/banner-public-service.jpg');
-                // }
-                // &:nth-child(5){
-                //     width: @height;
-                //     right: 100%;
-                //     transform:translateZ(@height/2) rotateY(-90deg);
-                //     transform-origin: right;
-                   
-                // }
-                // &:nth-child(6){
-                //     width: @height;
-                //     left: 100%;
-                //     transform:translateZ(@height/2) rotateY(90deg);
-                //     transform-origin: left;
-                    
-                // }
+                                height:${bannerHeight}px;width:${bannerWidth/cuts}px;background-size: ${bannerWidth}px auto;`;
                 switch(min){
                     case 1 :
                         style += `
