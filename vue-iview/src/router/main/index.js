@@ -27,6 +27,14 @@ let BaseRouter = [
                     title : '3dbanner图'
                 },
                 component : ()=>import('@/views/main/3dBanner')
+            },
+            {
+                path : 'canvasBall',
+                name : 'canvasBall',
+                mate : {
+                    title : 'canvas球'
+                },
+                component : ()=>import('@/views/main/canvasBall')
             }
         ]
     }
