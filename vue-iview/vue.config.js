@@ -15,5 +15,6 @@ module.exports = {
         .set('_n', resolve('node_modules'))
         .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
         .set('_c', resolve('src/components'))
+        .set('_u', resolve('utiles'))
     }
 }

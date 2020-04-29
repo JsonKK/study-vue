@@ -5,6 +5,7 @@
 </template>
  
 <script>
+  import {ball} from '../../utiles/ballAnimate.js';
   export default {
     name: 'canvasBall',
     components: {},
@@ -13,6 +14,8 @@
     },
     mounted(){
       this.initBall();
+      let renderBall = new ball();
+      
     },
     methods:{
       initBall(){
