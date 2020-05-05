@@ -35,6 +35,14 @@ let BaseRouter = [
                     title : 'canvas球'
                 },
                 component : ()=>import('@/views/main/canvasBall')
+            },
+            {
+                path : 'drag',
+                name : 'drag',
+                mate : {
+                    title : '拖拽',
+                },
+                component : ()=>import('@/views/main/drag')
             }
         ]
     }
