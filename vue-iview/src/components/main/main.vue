@@ -41,8 +41,6 @@
             }
         },
         mounted(){
-            console.log(this.$route)
-            console.log(routers)
             this.initMenu();
         },
         methods : {
