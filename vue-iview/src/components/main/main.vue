@@ -2,7 +2,14 @@
     <div class="layout">
         <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
             <Menu :active-name="$route.name" theme="dark" width="auto" @on-select="selectMenu" accordion>
-                <MenuItem :name="item.name" v-for="(item,index) in menus" :key="index">{{item.mate && item.mate.title}}</MenuItem>
+                <Submenu name="3">
+                     <template slot="title">
+                        <!-- <Icon type="ios-navigate"></Icon> -->
+                        一级菜单
+                    </template>
+                    <MenuItem :name="item.name" v-for="(item,index) in menus" :key="index">{{item.mate && item.mate.title}}</MenuItem>
+                </Submenu>
+                
                 <!-- <Submenu name="1">
                     <template slot="title">
                         <Icon type="ios-navigate"></Icon>
@@ -48,6 +55,7 @@
             initMenu(){
                 let arr = [];
                 routers.forEach((o,i)=>{
+                    console.log(o)
                     if(Array.isArray(o.children)){
                         arr = [...arr,...o.children];
                     }
