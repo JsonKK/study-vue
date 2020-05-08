@@ -2,12 +2,12 @@
     <div class="layout">
         <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
             <Menu :active-name="$route.name" theme="dark" width="auto" @on-select="selectMenu" accordion>
-                <Submenu name="3">
+                <Submenu :name="item.name" v-for="(item,index) in routers" :key="index">
                      <template slot="title">
                         <!-- <Icon type="ios-navigate"></Icon> -->
-                        一级菜单
+                        {{item.meta.title}}
                     </template>
-                    <MenuItem :name="item.name" v-for="(item,index) in menus" :key="index">{{item.mate && item.mate.title}}</MenuItem>
+                    <MenuItem :name="min.name" v-for="(min,minIndex) in item.children" :key="minIndex">{{min.mate && min.mate.title}}</MenuItem>
                 </Submenu>
                 
                 <!-- <Submenu name="1">
@@ -44,10 +44,12 @@
         data(){
             return {
                 menus : [],
-                breads : []
+                breads : [],
+                routers
             }
         },
         mounted(){
+            console.log(routers)
             this.initMenu();
         },
         methods : {

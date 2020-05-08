@@ -4,7 +4,7 @@
  
 <script>
   export default {
-    name: 'object',
+    name: 'objectBase',
     props:{},
     components: {},
     data(){return{}},

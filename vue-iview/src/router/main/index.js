@@ -8,7 +8,7 @@ let BaseRouter = [
         meta : {
             base : true,
             icon: 'md-person',
-            title: 'iview'
+            title: '案例'
         },
         component: main,
         children : [
