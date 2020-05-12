@@ -8,7 +8,24 @@ const routes = [
         path : '/start' , 
         component: { render : c=>c('router-view')},
         children : [
-            { path : 'index' , name : 'start_index' , component : ()=> import('@/views/start/index.vue')}
+            { 
+                path : 'index' , name : 'start_index' , component : ()=> import('@/views/start/index.vue'),
+                meta : {
+                    title : '首页'
+                }
+            }
+        ]
+    },
+    {
+        path : '/case' , 
+        component: { render : c=>c('router-view')},
+        children : [
+            { 
+                path : 'lazy-list' , name : 'layz_list' , component : ()=> import('@/views/case/lazy-list.vue'),
+                meta : {
+                    title : '懒加载测试'
+                }
+            }
         ]
     }
 ];
