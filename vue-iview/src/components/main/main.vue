@@ -49,7 +49,6 @@
             }
         },
         mounted(){
-            console.log(routers)
             this.initMenu();
         },
         methods : {
@@ -57,7 +56,6 @@
             initMenu(){
                 let arr = [];
                 routers.forEach((o,i)=>{
-                    console.log(o)
                     if(Array.isArray(o.children)){
                         arr = [...arr,...o.children];
                     }
