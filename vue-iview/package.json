@@ -11,7 +11,8 @@
     "iview": "^3.5.4",
     "view-design": "^4.0.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.1.5"
+    "vue-router": "^3.1.5",
+    "vue-seamless-scroll": "^1.1.21"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",
