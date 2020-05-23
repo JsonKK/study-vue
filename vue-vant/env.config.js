@@ -1,11 +1,11 @@
 module.exports = {
     baseUrl: {
-        dev: 'http://192.168.0.21:10002/rest/'
+        dev: 'http://192.168.107.64:10002/rest/'
         // pro: 'https://produce.com'
     },
     devServer: {
         port: "10002",
-        host : "192.168.0.21",
+        host : "0.0.0.0",
         open: false,
         proxy: {
             '/rest': {

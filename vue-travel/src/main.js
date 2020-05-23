@@ -7,6 +7,10 @@ import '@/assets/css/reset.css'
 import '@/assets/css/border.css'
 //解决移动端点击有300ms的延时问题
 import fastClick from 'fastclick';
+//引入字体图标库
+import '@/assets/css/iconfont.css';
+//引入主要样式
+import '@/assets/css/main.scss';
 fastClick.attach(document.body);
 
 Vue.config.productionTip = false
