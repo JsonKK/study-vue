@@ -6,7 +6,7 @@
         <img :src="item" alt="">
       </swiper-slide>
       <!-- Optional controls -->
-      <div class="swiper-pagination"  slot="pagination">
+      <div class="swiper-pagination" slot="pagination">
 
       </div>
       <!-- <div class="swiper-button-prev" slot="button-prev"></div>
