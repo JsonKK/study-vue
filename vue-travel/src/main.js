@@ -11,6 +11,8 @@ import fastClick from 'fastclick';
 import '@/assets/css/iconfont.css';
 //引入主要样式
 import '@/assets/css/main.scss';
+//引入轮播样式
+import 'swiper/css/swiper.css';
 fastClick.attach(document.body);
 
 Vue.config.productionTip = false

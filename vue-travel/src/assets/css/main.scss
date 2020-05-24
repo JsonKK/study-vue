@@ -1,13 +1,9 @@
 $bgColor:#fff;
 $fontCorlor:#333;
-body, html {
-  width: 100%;
-  min-height: 100%;
-}
 body{
   background-color: $bgColor;
   color: $fontCorlor;
-  // width: 100%;
-  // max-width: 750px;
+  width: 100%;
+  max-width: 750px;
   font-size: 24px;
 }
