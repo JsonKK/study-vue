@@ -43,6 +43,14 @@ let BaseRouter = [
                     title : '拖拽',
                 },
                 component : ()=>import('@/views/main/drag')
+            },
+            {
+                path : 'h5-factory',
+                name : 'h5Factory',
+                mate : {
+                    title : 'h5-factory'
+                },
+                component : ()=>import('@/views/main/h5-factory')
             }
         ]
     }
