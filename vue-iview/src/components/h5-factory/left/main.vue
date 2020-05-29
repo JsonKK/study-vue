@@ -18,6 +18,8 @@
 </template>
 
 <script>
+  import h5Factory from '@/assets/data/f5-factory';
+  console.log(h5Factory)
   export default {
     name: 'h5-factory-left',
     data() {

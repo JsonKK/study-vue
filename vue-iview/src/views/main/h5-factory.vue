@@ -69,7 +69,7 @@
     }
   }
   .right{
-    width: 280px;
+    width: 350px;
     border-left: 1px solid #e8e8e8;
   }
   .toolbar{
@@ -83,6 +83,7 @@
   }
 </style>
 <style>
+@import '~@/style/factory.normal.less';
 .ivu-card-body{
   padding: 0;
 }
