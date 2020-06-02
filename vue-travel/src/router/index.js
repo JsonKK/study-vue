@@ -5,16 +5,24 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
-    redirect : '/index'
-  },
-  {
     path : '/index',
     name : 'index',
     component: () => import('@/views/index.vue'),
     meta:{
       title : '首页'
     }
+  },
+  {
+    path : '/search',
+    name : 'search',
+    component: () => import('@/views/search.vue'),
+    meta:{
+      title : '城市检索'
+    }
+  },
+  {
+    path: '*',
+    redirect : '/index'
   }
 ]
 

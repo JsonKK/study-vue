@@ -1,10 +1,13 @@
 <template>
   <div class="header-box">
     <header>
-      <div class="left iconfont">
-        <span class="placeholder">搜索景点门票</span>
-      </div>
+      <router-link to="./search">
+        <div class="left iconfont">
+          <span class="placeholder">搜索景点门票</span>
+        </div>
+      </router-link>
       <div class="right">下载App</div>
+      
     </header>
   </div>
 </template>

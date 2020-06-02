@@ -1,6 +1,6 @@
 module.exports = {
     baseUrl: {
-        dev: 'http://192.168.107.64:10002/rest/'
+        dev: 'http://10.10.80.203:10002/rest/'
         // pro: 'https://produce.com'
     },
     devServer: {
