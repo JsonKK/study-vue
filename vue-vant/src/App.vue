@@ -14,8 +14,8 @@ export default {
 		meta: [
 			{ httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
 			{ name: 'renderer', content: 'webkit' },
-            { name: 'viewport' , content : 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'},
-            { name: 'format-detection', content : 'telephone=no'}
+			{ name: 'viewport' , content : 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'},
+			{ name: 'format-detection', content : 'telephone=no'}
 		]
 	}
 }

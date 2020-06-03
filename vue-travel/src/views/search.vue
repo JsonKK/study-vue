@@ -2,7 +2,8 @@
   <div class="search-wrap">
     <search-header></search-header>
     <search-info :cities="cities"></search-info>
-    <search-city-list :cities="cities" :hot="hotCities"></search-city-list>
+    <search-city-list :cities="cities" :hot="hotCities" :letter="letter"></search-city-list>
+    <search-alphabet :cities="cities"  @change="handleLetterChange"></search-alphabet>
   </div>
 </template>
 
@@ -11,17 +12,20 @@
   import searchHeader from '@/components/search-header.vue';
   import searchInfo from '@/components/search-info.vue';
   import searchCityList from '@/components/search-city-list.vue';
+  import searchAlphabet from '@/components/search-alphabet.vue';
   export default {
     name: 'search',
     components:{
       searchHeader,
       searchInfo,
-      searchCityList
+      searchCityList,
+      searchAlphabet
     },
     data() {
       return {
         cities : {},
-        hotCities : []
+        hotCities : [],
+        letter : ''
       }
     },
     mounted(){
@@ -39,6 +43,9 @@
           this.cities = data.cities;
           this.hotCities = data.hotCities;
         }
+      },
+      handleLetterChange (letter) {
+        this.letter = letter
       }
     }
   }
