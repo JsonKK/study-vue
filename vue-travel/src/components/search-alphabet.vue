@@ -42,21 +42,24 @@ export default {
   },
   methods: {
     handleLetterClick (e) {
+      // 点击字母跳转至该字母列表
       this.$emit('change', e.target.innerText)
     },
     handleTouchStart () {
       this.touchStatus = true
     },
     handleTouchMove (e) {
+      let that = this;
       if (this.touchStatus) {
+        // 使用函数节流提高网页性能
         if (this.timer) {
           clearTimeout(this.timer)
         }
         this.timer = setTimeout(() => {
           const touchY = e.touches[0].clientY - 79
-          const index = Math.floor((touchY - this.startY) / 20)
-          if (index >= 0 && index < this.letters.length) {
-            this.$emit('change', this.letters[index])
+          const index = Math.floor((touchY - that.startY) / 20)
+          if (index >= 0 && index < that.letters.length) {
+            that.$emit('change', that.letters[index])
           }
         }, 8)
       }
