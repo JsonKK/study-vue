@@ -15,6 +15,7 @@ import indexSwiper from '@/components/index-swiper.vue';
 import indexTouchIcon from '@/components/index-touch-icon.vue';
 import indexRecommend from '@/components/index-recommend.vue';
 import indexWeekend from '@/components/index-weekend.vue';
+import {mapState} from 'vuex';
 import axios from 'axios';
 export default {
   name : 'index',
@@ -24,7 +25,8 @@ export default {
     indexSwiper,
     indexTouchIcon,
     indexRecommend,
-    indexWeekend
+    indexWeekend,
+    lastCity : ''
   },
   data(){
     return{
@@ -34,13 +36,29 @@ export default {
       weekendList : []
     }
   },
+  computed:{
+    ...mapState(['city'])
+  },
   mounted(){
+    this.lastCity = this.city;
     this.initIndexData();
   },
+  // 触发缓存钩子
+  activated(){
+    this.judgeRefreshCity();
+  },
   methods : {
+    //判断城市是否刷新
+    judgeRefreshCity(){
+      let {lastCity,city} = this;
+      if(lastCity !== city){
+        this.lastCity = city;
+        this.initIndexData();
+      }
+    },
     //获取首页数据
     initIndexData(){
-      axios.get('/api/index.json').then((res)=>{
+      axios.get('/api/index.json?city='+this.city).then((res)=>{
         this.renderIndex(res);
       })
     },
