@@ -21,6 +21,14 @@ Vue.use(VueRouter)
     }
   },
   {
+    path : '/detail/:id',
+    name : 'detail',
+    component: () => import('@/views/detail.vue'),
+    meta:{
+      title : '详情'
+    }
+  },
+  {
     path: '*',
     redirect : '/index'
   }
