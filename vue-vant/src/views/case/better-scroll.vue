@@ -49,9 +49,7 @@
           click: true,
           taps: true,
           dblclick : true,
-          bounce: {
-            top : false
-          }
+          bounce: false
         });
       },
       //双击

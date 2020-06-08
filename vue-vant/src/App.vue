@@ -7,16 +7,28 @@
 <script>
 export default {
 	name: 'App',
+	data(){
+		return{
+			title : ''
+		}
+	},
 	components: {
 	},
-	metaInfo: {
-		title: 'This is the test UI',
-		meta: [
-			{ httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
-			{ name: 'renderer', content: 'webkit' },
-			{ name: 'viewport' , content : 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'},
-			{ name: 'format-detection', content : 'telephone=no'}
-		]
+	metaInfo(){
+		return {
+			title: this.title,
+			meta: [
+				{ httpEquiv: 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
+				{ name: 'renderer', content: 'webkit' },
+				{ name: 'viewport' , content : 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'},
+				{ name: 'format-detection', content : 'telephone=no'}
+			]
+		}
+	},
+	watch:{
+		$route(to,from){
+			this.title = to.meta.title;
+		}
 	}
 }
 </script>

@@ -41,6 +41,20 @@ const routes = [
 				}
 			}
 		]
+	},
+	{
+		path: '/case',
+		component: { render: c => c('router-view') },
+		children: [
+			{
+				path: 'five', 
+				name: 'five', 
+				component: () => import('@/views/case/five.vue'),
+				meta: {
+					title: '五指棋'
+				}
+			}
+		]
 	}
 ];
 
