@@ -3,16 +3,25 @@
 </template>
  
 <script>
+  import axios from 'axios';
   export default {
-    name: '',
+    name: 'detail',
     props:{},
     components: {},
     data(){
-      return{}
+      return{
+        
+      }
     },
     mounted(){},
     computed:{},
-    methods:{},
+    methods:{
+      //初始化详情数据
+      initDetail(){
+        let id = this.$router.parms.id;
+        console.log(id);
+      }
+    },
     watch:{}
   }
 </script>
