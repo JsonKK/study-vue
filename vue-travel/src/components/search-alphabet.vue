@@ -1,5 +1,6 @@
 <template>
   <ul class="list">
+    <!-- touchstart.prevent 阻止事件的默认事件 -->
     <li
       class="item"
       v-for="item of letters"
