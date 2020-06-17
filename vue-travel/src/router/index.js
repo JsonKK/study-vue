@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import index from '@/views/index.vue';
+
 Vue.use(VueRouter)
 
   const routes = [
   {
     path : '/index',
     name : 'index',
-    // component: () => import('@/views/index.vue'),
-    component : index,
+    component: () => import('@/views/index.vue'),
     meta:{
       title : '首页'
     }
@@ -22,14 +21,6 @@ Vue.use(VueRouter)
     }
   },
   {
-    path : '/detail/:id',
-    name : 'detail',
-    component: () => import('@/views/detail.vue'),
-    meta:{
-      title : '详情'
-    }
-  },
-  {
     path: '*',
     redirect : '/index'
   }
@@ -38,15 +29,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  }
-  
+  routes
 })
 
 export default router

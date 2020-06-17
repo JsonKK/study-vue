@@ -3,11 +3,7 @@
   "data": {
     "sightName": "大连圣亚海洋世界(AAAA景区)",
     "bannerImg": "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg",
-    "gallaryImgs": [
-      "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg",
-      "http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png",
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592219585514&di=dc8d128e1fba28d6bf117c374f91f487&imgtype=0&src=http%3A%2F%2Fimg.wxcha.com%2Ffile%2F201808%2F29%2F7c538019e6.jpg"
-    ],
+    "gallaryImgs": ["http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg", "http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png"],
     "categoryList": [{
         "title": "成人票",
         "children": [{
