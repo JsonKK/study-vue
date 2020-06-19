@@ -81,6 +81,9 @@
   .mr{
     margin-right: 12px;
   }
+  body{
+    background-color: #606266;
+  }
 </style>
 <style>
 @import '~@/style/factory.normal.less';

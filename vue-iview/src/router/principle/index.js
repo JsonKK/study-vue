@@ -19,6 +19,22 @@ let BaseRouter = [
                     title : '对象'
                 },
                 component : ()=>import('@/views/principle/object-base.vue')
+            },
+            {
+                path : '/var-model',
+                name : 'varModel',
+                mate : {
+                    title : '自定义组件v-model'
+                },
+                component : ()=>import('@/views/principle/var-model.vue')
+            },
+            {
+                path : '/listeners',
+                name : 'listeners',
+                mate : {
+                    title : '事件回传'
+                },
+                component : ()=>import('@/views/principle/listeners.vue')
             }
         ]
     }
