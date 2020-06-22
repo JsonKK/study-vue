@@ -10,7 +10,7 @@ module.exports = {
     //设置代理
     proxy : {
       '/api': {
-        target: 'http://10.10.80.203:4001/',
+        target: 'http://10.10.98.225:4001/',
         pathRewrite: {
           '^/api': 'static/mock'
         }

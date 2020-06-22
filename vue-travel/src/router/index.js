@@ -30,6 +30,14 @@ Vue.use(VueRouter)
     }
   },
   {
+    path : '/transition',
+    name : 'transition',
+    component: () => import('@/views/transition.vue'),
+    meta:{
+      title : '动画'
+    }
+  },
+  {
     path: '*',
     redirect : '/index'
   }
