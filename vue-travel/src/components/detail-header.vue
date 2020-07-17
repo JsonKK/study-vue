@@ -31,7 +31,6 @@
     computed:{},
     methods:{
       handleScroll(){
-        console.log(this.$route.params.id)
         let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
         if(top > 60){
           this.showAbs = false;

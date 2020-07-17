@@ -25,13 +25,7 @@ const routes = [
 				meta: {
 					title: '懒加载测试'
 				}
-			}
-		]
-	},
-	{
-		path: '/case',
-		component: { render: c => c('router-view') },
-		children: [
+			},
 			{
 				path: 'better-scroll', 
 				name: 'betterScroll', 
@@ -39,19 +33,21 @@ const routes = [
 				meta: {
 					title: '滚动插件使用'
 				}
-			}
-		]
-	},
-	{
-		path: '/case',
-		component: { render: c => c('router-view') },
-		children: [
+			},
 			{
 				path: 'five', 
 				name: 'five', 
 				component: () => import('@/views/case/five.vue'),
 				meta: {
 					title: '五指棋'
+				}
+			},
+			{
+				path: 'vue-tabslider', 
+				name: 'vue-tabslider', 
+				component: () => import('@/views/case/vue-tabslider.vue'),
+				meta: {
+					title: 'tab滑动插件'
 				}
 			}
 		]
