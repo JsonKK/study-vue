@@ -1,0 +1,16 @@
+{
+  "background_color": "#f19494",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./img/icons/android-chrome-192x192.png", 
+      "sizes": "192x192", 
+      "type": "image/png"
+    }
+  ],
+  "hehe":"搞笑",
+  "name": "恋爱博物馆",
+  "short_name": "love M",
+  "start_url": ".",
+  "theme_color": "#d466ff"
+}
