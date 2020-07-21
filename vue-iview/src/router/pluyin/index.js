@@ -19,6 +19,14 @@ let BaseRouter = [
                     title : '无缝滚动'
                 },
                 component : ()=>import('@/views/pluyin/vue-seamless-scroll.vue')
+            },
+            {
+                path : '/pluyin-highcharts-networkgraph',
+                name : 'pluyin-highcharts-networkgraph',
+                mate : {
+                    title : '力导图'
+                },
+                component : ()=>import('@/views/pluyin/highcharts-networkgraph.vue')
             }
         ]
     }
