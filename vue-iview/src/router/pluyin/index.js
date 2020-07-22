@@ -27,6 +27,14 @@ let BaseRouter = [
                     title : '力导图'
                 },
                 component : ()=>import('@/views/pluyin/highcharts-networkgraph.vue')
+            },
+            {
+                path : '/pluyin-echarts-multipletrees',
+                name : 'pluyin-echarts-multipletrees',
+                mate : {
+                    title : '多重树'
+                },
+                component : ()=>import('@/views/pluyin/echarts-multipletrees.vue')
             }
         ]
     }
