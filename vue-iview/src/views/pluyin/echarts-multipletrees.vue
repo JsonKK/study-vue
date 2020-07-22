@@ -20,6 +20,17 @@
     },
     computed:{},
     methods:{
+      resizeCanvas(count){
+        let height
+        if(count > 0){
+          height = count * 50 ;
+        }
+        let canvas = document.getElementById('api-tree-charts');
+        canvas.style.height = height + 'px';
+        myChart.resize({
+          height : height
+        });
+      },
       // 初始化数据图
       initChart(){
         let renderData2 = this.disposeChartData(data2);
@@ -28,12 +39,11 @@
           let {data} = params;
           this.renderChart(data);
         })
-        // myChart.resize({
-        //   height : myChart.getHeight() * 2
-        // });
+        
       },
       //渲染层级树
       renderChart(chartData){
+        this.resizeCanvas(11);
         myChart.showLoading();
         myChart.clear();
         myChart.hideLoading();
@@ -72,10 +82,10 @@
                 name: 'tree2',
                 data: [chartData],
 
-                // top: '2%',
-                // left: '2%',
-                // bottom: '2%',
-                // right: '4%',
+                top: '2%',
+                left: '140px',
+                bottom: '2%',
+                right: '214px',
 
                 symbolSize: 10,
 
