@@ -6,10 +6,7 @@ const resolve = dir => {
 module.exports = {
     //生成的配置文件
     outputDir: "dist",
-    devServer: {
-        host: '0.0.0.0',
-        port: '4001'
-    },
+    devServer: envConfig.devServer,
     chainWebpack: config => {
         config.resolve.alias
         .set('_n', resolve('node_modules'))

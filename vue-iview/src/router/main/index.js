@@ -51,6 +51,14 @@ let BaseRouter = [
                     title : 'h5-factory'
                 },
                 component : ()=>import('@/views/main/h5-factory')
+            },
+            {
+                path : 'todo-node-sequelize',
+                name : 'todo-node-sequelize',
+                mate : {
+                    title : 'todo任务(node-seq)'
+                },
+                component : ()=>import('@/views/main/todo-node-sequelize')
             }
         ]
     }
