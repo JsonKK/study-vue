@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}">
-            <Menu :active-name="$route.name" theme="dark" width="auto" @on-select="selectMenu" accordion>
+            <Menu :active-name="$route.name" :open-names="openName" theme="dark" width="auto" @on-select="selectMenu" accordion>
                 <Submenu :name="item.name" v-for="(item,index) in routers" :key="index">
                      <template slot="title">
                         <!-- <Icon type="ios-navigate"></Icon> -->
@@ -38,6 +38,7 @@
 </template>
 <script>
     import routers from '@/router/routers';
+    import _ from 'underscore';
     export default {
         props: {},
         components: {},
@@ -45,22 +46,30 @@
             return {
                 menus : [],
                 breads : [],
-                routers
+                routers,
+                openName : []
             }
         },
-        mounted(){
+        created(){
             this.initMenu();
         },
         methods : {
             //初始化菜单栏
             initMenu(){
                 let arr = [];
+                // 获取路由名称
+                let {name} = this.$route;
+                let openName = '';
                 routers.forEach((o,i)=>{
-                    if(Array.isArray(o.children)){
-                        arr = [...arr,...o.children];
+                    //如果二级路由的名称包含路由名称，则说明选中项的一级路由菜单展开
+                    if(_.isArray(o.children) && _.findWhere(o.children,{name})){
+                        openName = o.name;
                     }
                 });
-                this.menus = arr;
+                // 展开菜单赋值
+                if(openName){
+                    this.openName = [openName];
+                }
             },
             //选择菜单
             selectMenu(name){
