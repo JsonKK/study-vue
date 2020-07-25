@@ -96,7 +96,6 @@
         this.show = false;
       },
       changeTime(date,dateType){
-        console.log(date)
         this.formData[dateType] = date;
       },
       // 显示新增弹窗
