@@ -20,7 +20,7 @@
 </script>
 
 <style lang="less" scoped>
-  @import '~@/style/vars.less';
+  @import '~@/assets/style/vars.less';
   .text{
     font-weight: 400;
     text-decoration: none;

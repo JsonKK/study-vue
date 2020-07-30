@@ -4,7 +4,8 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 // 导出模块
 module.exports = {
   devServer:{
-    port : 8090
+    port : 8092,
+    disableHostCheck: true
   },
   css: {                // css相关配置
     sourceMap: false, // 开启 CSS source maps?

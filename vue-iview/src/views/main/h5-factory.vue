@@ -86,7 +86,7 @@
   }
 </style>
 <style>
-@import '~@/style/factory.normal.less';
+@import '~@/assets/style/factory.normal.less';
 .ivu-card-body{
   padding: 0;
 }

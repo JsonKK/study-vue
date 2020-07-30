@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import './plugins/iview.js'
 import router from './router'
-import './style/icon-font.css';
+import './assets/style/icon-font.css';
 //引入请求工具
 import service from './api';
 // import './style/custom.less';

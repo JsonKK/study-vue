@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 if ('serviceWorker' in navigator) {
   window.onload = function(){
     navigator.serviceWorker.register('./sw.js').then(registration => {
+      console.log(registration);
       console.log(
         'ServiceWorker registration successful with scope: ',
         registration.scope
