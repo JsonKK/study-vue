@@ -9,7 +9,7 @@ module.exports = {
         open: false,
         proxy: {
             '/node-seq': {
-                target: `http://10.10.98.225:10002`,      
+                target: `http://10.10.80.203:10002`,      
                 changeOrigin: true,
                 pathRewrite: {
                     '^/node-seq': ''

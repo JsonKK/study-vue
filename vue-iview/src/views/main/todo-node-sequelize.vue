@@ -1,8 +1,8 @@
 <template>
   <div id="todo-node-sequelize">
     <m-filter></m-filter>
-    <m-table></m-table>
-    <edit></edit>
+    <m-table ref="table"></m-table>
+    <edit ref="edit"></edit>
   </div>
 </template>
  
@@ -23,18 +23,25 @@
     },
     data(){
       return{
-        module : 'todoNode'
+        module : 'todoNode',
+        pageInfo : {
+          pageNum : 1,
+          pageSize : 3,
+          status : ''
+        }
       }
     },
     mounted(){
-      // this.getList();
     },
     computed:{},
     methods:{
-      // 获取列表
-      getList(){
-        let {module} = this;
-        this.$api('getPersonList',module);
+      //编辑或新增任务
+      showEdit(data,isEdit){
+        this.$refs.edit.showEdit(data,isEdit);
+      },
+      //检索列表
+      search(data){
+        this.$refs.table.search(data);
       }
     }
   }

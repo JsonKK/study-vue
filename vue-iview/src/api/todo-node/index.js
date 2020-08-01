@@ -6,11 +6,36 @@ const proxy = '/node-seq';
 const module = 'todoNode';
 // 定义接口信息
 let services = [
+  //获取任务列表
   {
-    url : '/person/list',
-    name : 'getPersonList',
-    method : 'get'
-  }
+    url : '/task/list',
+    name : 'postTaskList',
+    method : 'post'
+  },
+  // 修改任务状态
+  {
+    url : '/task/edit/:id/:status',
+    name : 'putTaskEdit',
+    method : 'put'
+  },
+  //删除任务
+  {
+    url : '/task/delete/:id',
+    name : 'deleteTask',
+    method : 'delete'
+  },
+  //增加任务
+  {
+    url : '/task/create',
+    name : 'createTask',
+    method : 'post'
+  },
+  //修改任务
+  {
+    url : '/task/edit',
+    name : 'editTask',
+    method : 'post'
+  },
 ]
 
 services = addBaseInfo(services,proxy,module);

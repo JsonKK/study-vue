@@ -5,7 +5,7 @@ import router from './router'
 import './assets/style/icon-font.css';
 //引入请求工具
 import service from './api';
-// import './style/custom.less';
+import './assets/style/custom.less';
 Vue.config.productionTip = false
 
 //将API方法绑定到全局
