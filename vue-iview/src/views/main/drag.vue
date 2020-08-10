@@ -15,7 +15,6 @@ export default {
     },
     mounted() {
         this.initDrag();
-        this.initSum();
     },
     computed: {},
     methods: {
@@ -47,52 +46,6 @@ export default {
             document.onmouseup = function () {
                 document.onmousemove = null;
             }
-        },
-        initSum() {
-            function random(num) {
-                if (num === undefined) {
-                    num = 100;
-                }
-                return parseInt(Math.random() * num)
-            }
-            function sum(arr) {
-                var num1 = arr[random(arr.length - 1)]
-                var num2;
-                while (!(num2 >= 0)) {
-                    var cacheNum = arr[random(arr.length - 1)];
-                    if (cacheNum != num1) {
-                        num2 = cacheNum;
-                    }
-                }
-                return num1 + num2;
-            }
-            var arr = [];
-            var i = 0;
-            while (i < 10) {
-                var num = random();
-                if (!arr.includes(num)) {
-                    i++;
-                    arr.push(num);
-                }
-            }
-            var target = sum(arr);
-            console.log('targer', target);
-            console.log('arr', arr);
-            console.log(this.twoSum(arr,target));
-        },
-        twoSum(nums, target) {
-            let map = {};//key数字 value下标
-            let loop = 0;//循环次数
-            let dis;//目标与当前值的差
-            while (loop < nums.length) {
-                dis = target - nums[loop];
-                if (map[dis] != undefined) {
-                    return [map[dis], loop];
-                }
-                map[nums[loop]] = loop;
-                loop++;
-            }
-            return 0;
         }
     },
     watch: {}
