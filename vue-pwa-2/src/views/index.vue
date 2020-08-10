@@ -50,9 +50,9 @@
                 <rank-list :list="rankList" :tap-index="rankTap"></rank-list>
             </dl>
         </section>
-        <section style="width:750px">
+        <!-- <section style="width:750px">
             <img src="../assets/map.jpg" alt="">
-        </section>
+        </section> -->
         <!-- 底部个人信息 -->
         <fixed-self :user-info="userInfo" :tap-index="rankTap"></fixed-self>
     </div>

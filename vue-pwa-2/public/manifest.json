@@ -10,6 +10,7 @@
   ],
   "hehe":"搞笑",
   "name": "恋爱博物馆",
+  "description" : "这是一段应用的描述、奥利奥",
   "short_name": "love M",
   "start_url": ".",
   "theme_color": "#d466ff"

@@ -4,7 +4,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 // 导出模块
 module.exports = {
   devServer:{
-    port : 8092,
+    port : 8090,
     disableHostCheck: true
   },
   css: {                // css相关配置
@@ -26,29 +26,31 @@ module.exports = {
   //   config.plugin('workbox')
   // },
    // ...other vue-cli plugin options...
-  //  pwa: {
-  //   name: '恋爱博物馆',
-  //   short_name: "love M",
-  //   start_url: ".",
-  //   theme_color: "#d466ff",
-  //   msTileColor: '#000000',
-  //   appleMobileWebAppCapable: 'yes',
-  //   appleMobileWebAppStatusBarStyle: 'black',
-  //   icons: [
-  //     {
-  //       src: "./img/icons/android-chrome-192x192.png", 
-  //       sizes: "192x192", 
-  //       type: "image/png"
-  //     }
-  //   ],
-  //   background_color: "#f19494",
-  //   display: "standalone",
-  //   // configure the workbox plugin
-  //   workboxPluginMode: 'InjectManifest',
-  //   workboxOptions: {
-  //     // swSrc is required in InjectManifest mode.
-  //     swSrc: './sw.js',
-  //     // ...other Workbox options...
-  //   }
-  // }
+   pwa: {
+    msTileColor : 'black',
+    themeColor : '#d466ff',
+    // name: '恋爱博物馆',
+    // short_name: "love M",
+    // start_url: ".",
+    // theme_color: "#d466ff",
+    // msTileColor: '#000000',
+    // appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    // icons: [
+    //   {
+    //     src: "./img/icons/android-chrome-192x192.png", 
+    //     sizes: "192x192", 
+    //     type: "image/png"
+    //   }
+    // ],
+    // background_color: "#f19494",
+    // display: "standalone",
+    // // configure the workbox plugin
+    // workboxPluginMode: 'InjectManifest',
+    // workboxOptions: {
+    //   // swSrc is required in InjectManifest mode.
+    //   swSrc: './sw.js',
+    //   // ...other Workbox options...
+    // }
+  }
 }
