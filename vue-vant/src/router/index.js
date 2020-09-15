@@ -49,6 +49,14 @@ const routes = [
 				meta: {
 					title: 'tab滑动插件'
 				}
+			},
+			{
+				path: 'vue-render-path', 
+				name: 'vue-render-path', 
+				component: () => import('@/views/case/vue-render-path.vue'),
+				meta: {
+					title: '渲染函数'
+				}
 			}
 		]
 	}
