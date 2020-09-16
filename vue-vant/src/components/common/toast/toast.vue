@@ -65,14 +65,14 @@
   }
   .toast-info{
     padding: 20px;
-    line-height: 30px;
+    line-height: 40px;
     border-radius: 10px;
     background-color: #212121;
     color: #fff;
-    font-size: 20px;
+    font-size: 28px;
     text-align: center;
-    max-width: 240px;
-    max-height: 400px;
+    max-width: 500px;
+    max-height: 70vh;
     overflow-y: auto;
   }
   .fade-enter-active, .fade-leave-active {

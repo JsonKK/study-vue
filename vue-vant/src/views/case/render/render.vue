@@ -70,14 +70,43 @@
             }
           },[
             createElement('div','我是孙子节点')
-          ])
+          ]),
+          //渲染列表
+          createElement('ul',this.list.map((item)=>{
+            return createElement('li',item.title)
+          })),
+          //实现数据双向绑定
+          createElement('input', {
+            domProps: {
+              value: that.value
+            },
+            on: {
+              input: function (event) {
+                that.value = event.target.value;
+                that.$emit('input', event.target.value)
+              }
+            }
+          })
         ] 
       )
     },
     data(){
       that = this;
       return{
-
+        list : [
+          {
+            title : '列表第一项'
+          },
+          {
+            title : '列表第二项'
+          }
+        ],
+        value : 3
+      }
+    },
+    watch : {
+      value(val){
+        console.log(val)
       }
     }
   }
