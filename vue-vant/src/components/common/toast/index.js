@@ -3,11 +3,12 @@ import toast from './toast.vue';
 
 const ToastConstructor = Vue.extend(toast);
 
-const Toast = ({message,location}) => {
+const Toast = ({content,location,duration}) => {
   const ToastInstance = new ToastConstructor({
-    data :{
-      message,
-      location
+    data : {
+      content,
+      location,
+      duration
     }
   })
 
@@ -27,3 +28,19 @@ export default{
     vue.prototype.$toast = Toast;
   }
 }
+
+/* 
+使用方法 
+在main.js中引入
+import Toast from './components/common/toast';
+Vue.use(Toast);
+
+在业务模块通过方法调用
+this.$toast({
+  content : '吐司内容',
+  //吐司持续时间，不写默认为3秒
+  duration : 10000,
+  //location 位置，默认为居中。可设置top、bottom
+})
+
+*/

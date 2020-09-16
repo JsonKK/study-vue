@@ -6,7 +6,7 @@
     <button @click="showToast">触发吐司</button>
     <button @click="showComfirm">触发确认弹窗</button>
     <button @click="showComfirmComponents">触发组件版的确认弹窗</button>
-    <comfirm title="标题" content="内容哈哈哈哈哈哈哈哈哈" v-model="showComfirm2"></comfirm>
+    <comfirm title="标题" content="内容哈哈哈哈哈哈哈哈哈" ok-text="a" v-model="showComfirm2"></comfirm>
   </div>
 </template>
  
@@ -30,7 +30,8 @@
     methods:{
       showToast(){
         this.$toast({
-          message : '上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。'
+          content : '上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。上面写的东西跟普通的一个单文件Vue组件没有什么太大的区别。不过区别就在于，没有props了，那么是如何通过外部来控制这个组件的显隐呢？所以还需要一个js文件来接管这个组件，并调用extend方法。同目录下可以创建一个index.js的文件。',
+          duration : 10000
         })
       },
       showComfirm(){

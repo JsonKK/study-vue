@@ -25,11 +25,17 @@
       //是否隐藏标题
       hideTitle : false,
       //取消按钮文本
-      cancelText : '取消',
+      cancelText : {
+        type : String,
+        default : '取消'
+      },
       //隐藏取消按钮
       hideCancel : false,
       // 确定按钮文案
-      okText : '确定',
+      okText : {
+        type : String,
+        default : '确定'
+      },
       //v-model对外开放值
       value : {
         type : Boolean

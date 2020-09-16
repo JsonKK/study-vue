@@ -1,7 +1,7 @@
 <template>
   <div class="toast-box" :class="[location ? 'toast-location-' + location : '']">
     <transition name="fade">
-      <div class="toast-info" v-if="show">{{message}}</div>
+      <div class="toast-info" v-if="show">{{content}}</div>
     </transition>
   </div>
 </template>
@@ -13,10 +13,12 @@
       that = this;
       return{
         show : false,
-        //吐司关闭时间
+        //默认关闭时间
         closeTime : 3000,
         //吐司所在位置
-        location : ''
+        location : '',
+        //吐司内容
+        content : ''
       }
     },
     mounted(){
@@ -24,7 +26,10 @@
     },
     methods : {
       setTimerClose(){
-        let {closeTime} = this;
+        let {closeTime,duration} = this;
+        if(duration > 0){
+          closeTime = duration;
+        }
         setTimeout(()=>{
           this.close();
         },closeTime)
@@ -76,10 +81,11 @@
     overflow-y: auto;
   }
   .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
+    transition: all .3s;
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
+    opacity: 0.8;
+    transform: scale(0.8);
   }
 </style>
  
