@@ -57,6 +57,14 @@ const routes = [
 				meta: {
 					title: '渲染函数'
 				}
+			},
+			{
+				path: 'img-distance', 
+				name: 'img-distance', 
+				component: () => import('@/views/case/img-distance.vue'),
+				meta: {
+					title: '解决h5图片间隙问题'
+				}
 			}
 		]
 	}
