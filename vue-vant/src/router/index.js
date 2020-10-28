@@ -65,6 +65,30 @@ const routes = [
 				meta: {
 					title: '解决h5图片间隙问题'
 				}
+			},
+			{
+				path: 'img-distance', 
+				name: 'img-distance', 
+				component: () => import('@/views/case/img-distance.vue'),
+				meta: {
+					title: '解决h5图片间隙问题'
+				}
+			},
+			{
+				path: 'lottie', 
+				name: 'lottie', 
+				component: () => import('@/views/case/lottie.vue'),
+				meta: {
+					title: 'lottie案例'
+				}
+			},
+			{
+				path : 'sudoku',
+				name : 'sudoku',
+				component : () => import('@/views/case/sudoku'),
+				meta : {
+					title : 'sudoku'
+				}
 			}
 		]
 	}
