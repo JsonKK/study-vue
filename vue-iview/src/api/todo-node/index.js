@@ -36,6 +36,16 @@ let services = [
     name : 'editTask',
     method : 'post'
   },
+  {
+    url : '/php_ast/flow.php',
+    name : 'getMultipletree',
+    method : 'get'
+  },
+  {
+    url : '/live_trade/v1/UnsurpassedBeauty/getH5BaseInfo',
+    name : 'testFlow',
+    method : 'get'
+  }
 ]
 
 services = addBaseInfo(services,proxy,module);

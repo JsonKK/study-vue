@@ -123,18 +123,22 @@
               obj.style.top = itemsPosition[4].top - itemsPosition[i].top + 'px';
               break;
             case 4:
+              // 5和8换
               obj.style.left = itemsPosition[7].left -itemsPosition[i].left + 'px';
               obj.style.top = itemsPosition[7].top - itemsPosition[i].top + 'px';
               break;
             case 5:
+              // 6和7换
               obj.style.left = itemsPosition[6].left -itemsPosition[i].left + 'px';
               obj.style.top = itemsPosition[6].top - itemsPosition[i].top + 'px';
               break;
             case 6:
+              // 7和6换
               obj.style.left = itemsPosition[5].left -itemsPosition[i].left + 'px';
               obj.style.top = itemsPosition[5].top - itemsPosition[i].top + 'px';
               break;
             case 7:
+              // 8和4换
               obj.style.left = itemsPosition[3].left -itemsPosition[i].left + 'px';
               obj.style.top = itemsPosition[3].top - itemsPosition[i].top + 'px';
               break;

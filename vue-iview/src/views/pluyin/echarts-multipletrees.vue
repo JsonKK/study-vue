@@ -16,10 +16,24 @@
     },
     mounted(){
       myChart = echarts.init(document.getElementById('api-tree-charts'));
-      this.initChart();
+      
+      this.initData();
     },
     computed:{},
     methods:{
+      //初始化数据
+      initData(){
+        this.$api('getMultipletree','todoNode',{},{
+          params : {
+            source : 'live-api/1',
+            service : 'ForumChatRoom',
+            func : 'saveChat'
+          }
+        }).then((res)=>{
+          // console.log(res);
+          this.initChart(res);
+        })
+      },
       resizeCanvas(count){
         let height
         if(count > 0){
@@ -32,7 +46,7 @@
         });
       },
       // 初始化数据图
-      initChart(){
+      initChart(data){
         let renderData2 = this.disposeChartData(data2);
         this.renderChart(renderData2);
         myChart.on('click',(params)=>{
