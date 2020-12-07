@@ -82,6 +82,7 @@
       draw(){
         this.active = 0;
         this.activeTwo = 0;
+        // 模拟中奖序号
         let prize = Math.ceil(Math.random() * 8);
         let that = this;
         let {active,activeTwo} = this;
@@ -104,9 +105,12 @@
       },
       //初始化位置
       initPrizePosition(){
+        //所有奖品列表
         let prizeList = document.getElementsByClassName('prize');
+        // 容器
         let list = document.getElementById('list');
         let itemsPosition = [];
+        //遍历获得元素坐标位置
         for(let i = 0,lang = prizeList.length;i < lang;i++){
           // console.log(prizeList[i].offsetLeft - list.offsetLeft);
           itemsPosition.push({
@@ -114,6 +118,7 @@
             top : prizeList[i].offsetTop -list.offsetTop
           })
         }
+        // 遍历换位置
         for(let i = 0,lang = prizeList.length;i < lang;i++){
           let obj = prizeList[i];
           switch(i){
