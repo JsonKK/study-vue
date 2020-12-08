@@ -8,3 +8,5 @@ package-lock.json
 .idea
 .code-workspace
 *.code-workspace
+vue-vant/package-lock.json
+study-vue.code-workspace
