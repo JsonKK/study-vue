@@ -1,40 +1,49 @@
 <template>
-  <div class="page-content" style="background-color:#ccc; margin: 0px;height: 100%; font-family: sans-serif;font-size: 10px">
-    <div class="circle" ref="lottie" id="bodymovin"></div>
+  <div class="page-content" style="">
+    <!-- 渲染lottie -->
+    <ul>
+      <lottie-item v-for="(item,index) in list" :key="index" :show="item.show"></lottie-item>
+    </ul>
+    <!-- 按钮 -->
+    <div class="btn-normal" @click="initList">切换数据</div>
   </div>
 </template>
  
 <script>
-  import lottie from 'lottie-web';
-  import bodymovin from 'bodymovin';
+  import lottieItem from '_c/lottie-item.vue';
   export default {
     name: 'lottie',
     props:{},
-    components: {},
+    components: {
+      lottieItem
+    },
     data(){
       return{
-        
+        list : [],
+        lang : 4
       }
     },
     mounted(){
-      this.move();
+      this.initList();
     },
     computed:{},
     methods:{
-      move(){
-        let element = this.$refs['lottie'];
-        let anim = lottie.loadAnimation({
-          wrapper: element, // the dom element
-          animType: 'html',
-          loop: true,
-          prerender: true,
-          autoplay: true,
-          path: '/cross-data.json'
-        });
-        // setTimeout(()=>{
-        //   anim.goToAndStop(1100)
-        // },1000)
-        
+      // 初始化列表
+      initList(){
+        let {lang} = this;
+        let arr = []
+        for(let i = 0;i<lang;i++){
+          arr[i] = {};
+          let random = parseInt(Math.random() * 20);
+          if(random > 5){
+            arr[i].show = true;
+          }
+          else{
+            arr[i].show = false;
+          }
+        }
+        console.log(arr);
+        this.list = arr;
       }
     }
   }
@@ -42,11 +51,14 @@
  
 <style lang="less" scoped>
   .page-content{
-    min-height: 200px;
-    // &:before{
-    //   content: '';
-    //   display: table;
-    // }
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+    background-color:#ccc; 
+    margin: 0px;
+    height: 100%; 
+    font-family: sans-serif;
+    font-size: 10px;
     &:before{
       content: '.';
       display:block;
@@ -61,6 +73,17 @@
     min-height: 56px;
     margin-top: 20px;
     position: relative;
+  }
+  .btn-normal{
+    width: 300px;
+    height: 88px;
+    line-height: 88px;
+    border-radius: 44px;
+    background-color: antiquewhite;
+    color: #333;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 28px;
   }
 </style>
  
