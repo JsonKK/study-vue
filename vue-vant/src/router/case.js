@@ -79,6 +79,14 @@ export default {
       meta : {
         title : '翻牌动画'
       }
+    },
+    {
+      path: 'vue-count-to', 
+      name: 'vue-count-to', 
+      component: () => import('@/views/case/vue-count-to.vue'),
+      meta: {
+        title: '动态数字'
+      }
     }
   ]
 }
