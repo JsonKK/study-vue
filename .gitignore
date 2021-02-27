@@ -2,11 +2,10 @@ node_modules
 build
 dist
 
-package-lock.json
+*/package-lock.json
 .vscode
 .svn
 .idea
 .code-workspace
 *.code-workspace
-vue-vant/package-lock.json
 study-vue.code-workspace
