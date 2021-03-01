@@ -87,6 +87,14 @@ export default {
       meta: {
         title: '动态数字'
       }
+    },
+    {
+      path: 'waterfall',
+      name: 'waterfall',
+      component: () => import('@/views/case/waterfall.vue'),
+      meta: {
+        title : '瀑布流布局'
+      }
     }
   ]
 }
