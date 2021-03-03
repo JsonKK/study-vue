@@ -12,6 +12,7 @@
     "better-scroll": "^1.15.2",
     "bodymovin": "^4.13.0",
     "core-js": "^3.6.4",
+    "echarts": "^5.0.2",
     "js-cookie": "^2.2.0",
     "lottie-web": "^5.7.3",
     "underscore": "^1.9.1",

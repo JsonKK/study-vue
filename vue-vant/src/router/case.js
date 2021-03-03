@@ -95,6 +95,14 @@ export default {
       meta: {
         title : '瀑布流布局'
       }
+    },
+    {
+      path: 'echarts-line-mobile',
+      name: 'echarts-line-mobile',
+      component: () => import('@/views/case/echarts-line-mobile.vue'),
+      meta: {
+        title : '移动端折线图'
+      }
     }
   ]
 }
