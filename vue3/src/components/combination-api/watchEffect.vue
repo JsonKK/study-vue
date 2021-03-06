@@ -1,0 +1,26 @@
+<template>
+  <section class="watchEffect">
+    <h1>watchEffect - 侦听器</h1>
+    <p>{{data.count}}</p>
+  </section>
+</template>
+
+<script>
+import {reactive,watchEffect} from 'vue';
+export default {
+  setup(){
+    const data = reactive({count:0,timer:null});
+    watchEffect(()=>{
+      console.log('监视器函数watchEffect 监控count变化：'+data.count);
+    })
+    data.timer = setInterval(()=>{
+      data.count++;
+      if(data.count>5){
+        clearInterval(data.timer);
+        data.timer = null;
+      }
+    },1000);
+    return {data};
+  }
+}
+</script>

@@ -10,10 +10,11 @@
       </li>
     </ul>
   </section>
+  <section id="other-view"></section>
   <section class="view">
     <router-view></router-view>
   </section>
-  <section id="other-view"></section>
+  
 </template>
  
 <script>

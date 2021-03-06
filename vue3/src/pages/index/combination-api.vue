@@ -8,14 +8,12 @@
 
   <button @click="state.count++">count is: {{ state.count }}</button>
   <br/>
-  <p>
-    {{msg}}
-  </p>
-  <combinationApi :user="`jsonKK${state.count}`" />
+  <p>{{msg}}</p>
+  <combinationApi />
 </template>
 
 <script setup>
-import combinationApi from 'comps/combination-api.vue';
+import combinationApi from 'comps/combination-api/index.vue';
 import { defineProps, reactive } from 'vue'
 //暂时不知道用来干什么的
 //实现来看是传递给子组件的

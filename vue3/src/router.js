@@ -22,7 +22,7 @@ const router = createRouter({
       ]
     },
     {
-      path: '/',
+      path: '/:catchAll(.*)',
       redirect : '/index'
     }
 　],

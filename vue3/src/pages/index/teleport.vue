@@ -1,11 +1,10 @@
 <template>
   <button @click="modalOpen = true">
-      Open full screen modal! (With teleport!)
+    Open full screen modal! (With teleport!)
   </button>
-
-  <!-- 把结构渲染到id为other-view的容器内 -->
   <teleport to="#other-view">
-    <child />
+    <!-- 可以包含组件 -->
+    <child/>
     <div v-if="modalOpen" class="modal">
       <div>
         I'm a teleported modal! 
@@ -19,20 +18,26 @@
 </template>
  
 <script>
-  import child from 'comps/child.vue';
-  import { reactive } from 'vue'
-  console.log(child)
-  const state = reactive({ modalOpen: false})
-  // export default {
-  //   name: 'indexTeleport',
-  //   data(){
-  //     return{
-  //       modalOpen: false
-  //     }
-  //   },
-  //   mounted(){}
-  // }
+  import child from 'comps/child.vue';;
+  import {ref} from 'vue';
+  export default {
+    name: 'teleport',
+    components: {child},
+    data(){
+      return{
+      }
+    },
+    setup(){
+      let modalOpen = ref(false);
+      return{
+        modalOpen
+      }
+    },
+    mounted(){},
+    computed:{},
+    methods:{}
+  }
 </script>
  
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
  
