@@ -11,9 +11,10 @@ import {reactive,watch} from 'vue';
 export default {
   setup(){
     const data = reactive({count1:1,count2:1,timer:null});
+    //只有数据发生改变的时候才会触发watch
     //监听data
     watch(data,()=>{
-      console.log('watch监听data变化')
+      console.log('watch监听data变化'+data.count1)
     })
     //监听单个属性变化
     watch(()=>{

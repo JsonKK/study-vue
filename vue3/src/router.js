@@ -18,6 +18,11 @@ const router = createRouter({
           name : 'indexTeleport',
           path : '/index/teleport',
           component : ()=>import('@/pages/index/teleport.vue')
+        },
+        {
+          name : 'attrs',
+          path : '/index/attrs',
+          component : ()=>import('@/pages/index/attrs.vue')
         }
       ]
     },

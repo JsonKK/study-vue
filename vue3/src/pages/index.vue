@@ -32,6 +32,11 @@
             name : 'indexTeleport',
             path : '/index/teleport',
             title : 'teleport'
+          },
+          {
+            name : 'attrs',
+            path : '/index/attrs',
+            title : 'attrs'
           }
         ]
       }

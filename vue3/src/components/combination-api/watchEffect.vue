@@ -10,6 +10,7 @@ import {reactive,watchEffect} from 'vue';
 export default {
   setup(){
     const data = reactive({count:0,timer:null});
+    //默认会执行一次
     watchEffect(()=>{
       console.log('监视器函数watchEffect 监控count变化：'+data.count);
     })
