@@ -9,7 +9,7 @@
 import HelloWorld from './components/HelloWorld.vue';
 </script>
 
-<style>
+<style lang="scss">
 @import url('assets/css/main.css');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -18,5 +18,17 @@ import HelloWorld from './components/HelloWorld.vue';
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.input-box{
+  padding: 10px;
+  background: #ddd;
+  input{
+    border: 1px solid #888;
+    padding: 0 4px;
+  }
+  button{
+    padding: 0 10px;
+    margin-left: 20px;
+  }
 }
 </style>

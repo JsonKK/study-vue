@@ -23,6 +23,21 @@ const router = createRouter({
           name : 'attrs',
           path : '/index/attrs',
           component : ()=>import('@/pages/index/attrs.vue')
+        },
+        {
+          name : 'vmodel',
+          path : '/index/vmodel',
+          component : ()=>import('@/pages/index/vmodel.vue')
+        },
+        {
+          name : 'provide_inject',
+          path : '/index/provide_inject',
+          component : ()=>import('@/pages/index/provide_inject.vue')
+        },
+        {
+          name : 'dynamic_component',
+          path : '/index/dynamic_component',
+          component : ()=>import('@/pages/index/dynamic_component.vue')
         }
       ]
     },

@@ -37,6 +37,21 @@
             name : 'attrs',
             path : '/index/attrs',
             title : 'attrs'
+          },
+          {
+            name : 'vmodel',
+            path : '/index/vmodel',
+            title : 'vmodel'
+          },
+          {
+            name : 'provide_inject',
+            path : '/index/provide_inject',
+            title : 'provide_inject'
+          },
+          {
+            name : 'dynamic_component',
+            path : '/index/dynamic_component',
+            title : 'dynamic_component'
           }
         ]
       }
@@ -65,16 +80,26 @@ h4{
 }
 .tab-ul{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 40px;
   overflow-x: auto;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  flex-direction :row;
+  width: 90%;
+  margin:  0 auto;
 }
 .tab-li{
   font-size: 14px;
   height: 36px;
   line-height: 36px;
   padding: 0 12px;
+  flex : 1;
+  box-sizing: border-box;
+  white-space: nowrap;
+  flex-grow:0;
+  flex-shrink:0;
 }
 .tab-li-active{
   font-weight: bold;
