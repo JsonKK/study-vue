@@ -3,28 +3,51 @@
     <h1>动态组件渲染</h1>
     <ul class="tab-ul">
       <li class="tab-li" 
-          :class="{'tab-li-active':(index+1) == actived}" 
-          v-for="(item,index) in tabs">
+          :class="{'tab-li-active':index == actived}" 
+          v-for="(item,index) in tabs"
+          @click="changeli(index)">
         {{item.title}}
       </li>
     </ul>
   </div>
+  <keep-alive>
+    <component :is="comps[actived]"></component>
+  </keep-alive>
+  
 </template>
 
 <script>
-  import {reactive,toRefs} from 'vue';
+  import {reactive,toRefs,defineAsyncComponent,markRaw} from 'vue';
+  const data = reactive({
+    tabs : [
+      {
+        title : '组件A'
+      },
+      {title : '组件B'},
+      {title : '组件C'},
+    ],
+    actived : 0
+  })
+  const comps = markRaw([
+    defineAsyncComponent(()=> import('comps/dynamic_component/a.vue')),
+    //通过异步回调组件
+    defineAsyncComponent(()=> {
+      return new Promise((resolve)=>{
+        resolve(import('comps/dynamic_component/b.vue'));
+      })
+    }),
+    defineAsyncComponent(()=> import('comps/dynamic_component/c.vue'))
+  ])
+  const changeli = function(index){
+    if(index != data.actived){
+      data.actived = index;
+    }
+  }
   export default {
     name: 'dynamic_component',
     setup(){
-      const data = reactive({
-        tabs : [
-          {title : '组件A'},
-          {title : '组件B'},
-          {title : '组件C'},
-        ],
-        actived : 1
-      })
-      return {...toRefs(data)};
+      
+      return {...toRefs(data),comps,changeli};
     }
   }
 </script>
