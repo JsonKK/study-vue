@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import combinationApi from 'comps/combination-api/index.vue';
+import combinationApi from 'comps/combination_api/index.vue';
 import { defineProps, reactive ,provide, ref } from 'vue'
 //暂时不知道用来干什么的
 //实现来看是传递给子组件的

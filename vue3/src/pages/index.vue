@@ -25,7 +25,7 @@
         tabs : [
           { 
             name : 'indexCombinationApi',
-            path : '/index/combination-api',
+            path : '/index/combination_api',
             title : '组合式api'
           },
           {
@@ -52,6 +52,16 @@
             name : 'dynamic_component',
             path : '/index/dynamic_component',
             title : 'dynamic_component'
+          },
+          {
+            name : 'ref',
+            path : '/index/ref',
+            title : 'ref'
+          },
+          {
+            name : 'custom_bind',
+            path : '/index/custom_bind',
+            title : '自定义属性'
           }
         ]
       }

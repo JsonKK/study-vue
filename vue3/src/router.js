@@ -7,12 +7,12 @@ const router = createRouter({
       path: '/index',
       name: 'home',
       component: ()=>import('@/pages/index.vue'),
-      redirect : '/index/combination-api',
+      redirect : '/index/combination_api',
       children : [
         {
           name : 'indexCombinationApi',
-          path : '/index/combination-api',
-          component : ()=>import('@/pages/index/combination-api.vue')
+          path : '/index/combination_api',
+          component : ()=>import('@/pages/index/combination_api.vue')
         },
         {
           name : 'indexTeleport',
@@ -38,6 +38,16 @@ const router = createRouter({
           name : 'dynamic_component',
           path : '/index/dynamic_component',
           component : ()=>import('@/pages/index/dynamic_component.vue')
+        },
+        {
+          name : 'ref',
+          path : '/index/ref',
+          component : ()=>import('@/pages/index/ref.vue')
+        },
+        {
+          name : 'custom_bind',
+          path : '/index/custom_bind',
+          component : ()=>import('@/pages/index/custom_bind.vue')
         }
       ]
     },

@@ -19,15 +19,15 @@
   <mVfor />
 </template>
 <script>
-import mSetup from 'comps/combination-api/setup.vue';
-import mReactive from 'comps/combination-api/reactive.vue';
-import mRef from 'comps/combination-api/ref.vue';
-import mComputed from 'comps/combination-api/computed.vue';
-import mWatchEffect from 'comps/combination-api/watchEffect.vue';
-import mWatch from 'comps/combination-api/watch.vue';
-import mReadonly from 'comps/combination-api/readonly.vue';
-import mToRef from 'comps/combination-api/to-ref.vue';
-import mVfor from 'comps/combination-api/vfor.vue';
+import mSetup from 'comps/combination_api/setup.vue';
+import mReactive from 'comps/combination_api/reactive.vue';
+import mRef from 'comps/combination_api/ref.vue';
+import mComputed from 'comps/combination_api/computed.vue';
+import mWatchEffect from 'comps/combination_api/watchEffect.vue';
+import mWatch from 'comps/combination_api/watch.vue';
+import mReadonly from 'comps/combination_api/readonly.vue';
+import mToRef from 'comps/combination_api/to_ref.vue';
+import mVfor from 'comps/combination_api/vfor.vue';
 
 export default {
   components : {mSetup,mReactive,mRef,mComputed,mWatchEffect,mWatch,mReadonly,mToRef,mVfor},
