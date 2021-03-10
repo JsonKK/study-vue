@@ -4,10 +4,11 @@
     <p>{{msg}}</p>
     <button @click="updateMessage">更新数据</button>
   </section>
+  <section ref="section"></section>
 </template>
 
 <script>
-import {ref} from 'vue';
+import {ref,onMounted} from 'vue';
 
 export default {
   name : 'ref',

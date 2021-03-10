@@ -21,10 +21,6 @@
   },
   "eslintConfig": {
     "root": true,
-    "extends": [
-      "plugin:vue/recommended",
-      "eslint:recommended"
-    ],
     "rules": {
       "no-console": "off",
       "vue/no-use-v-if-with-v-for": [

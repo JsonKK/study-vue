@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1>动态组件渲染</h1>
+    <h1>动态/异步组件渲染</h1>
     <ul class="tab-ul">
       <li class="tab-li" 
           :class="{'tab-li-active':index == actived}" 

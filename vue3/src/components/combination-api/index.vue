@@ -10,11 +10,13 @@
   <hr/>
   <mWatchEffect />
   <hr/>
-  <mWatch />
+  <mWatch :="$attrs"/>
   <hr/>
   <mReadonly />
   <hr/>
   <mToRef />
+  <hr/>
+  <mVfor />
 </template>
 <script>
 import mSetup from 'comps/combination-api/setup.vue';
@@ -25,10 +27,10 @@ import mWatchEffect from 'comps/combination-api/watchEffect.vue';
 import mWatch from 'comps/combination-api/watch.vue';
 import mReadonly from 'comps/combination-api/readonly.vue';
 import mToRef from 'comps/combination-api/to-ref.vue';
-
+import mVfor from 'comps/combination-api/vfor.vue';
 
 export default {
-  components : {mSetup,mReactive,mRef,mComputed,mWatchEffect,mWatch,mReadonly,mToRef},
+  components : {mSetup,mReactive,mRef,mComputed,mWatchEffect,mWatch,mReadonly,mToRef,mVfor},
   data(){
     return {
       setup : '来自父组件的默认值'

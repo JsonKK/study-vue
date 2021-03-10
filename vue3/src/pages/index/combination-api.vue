@@ -8,13 +8,13 @@
 
   <button @click="state.count++">count is: {{ state.count }}</button>
   <br/>
-  <p>{{msg}}</p>
-  <combinationApi />
+  <p>{{state.msg}}</p>
+  <combinationApi :count="state.count" :msg="state.msg" />
 </template>
 
 <script setup>
 import combinationApi from 'comps/combination-api/index.vue';
-import { defineProps, reactive } from 'vue'
+import { defineProps, reactive ,provide, ref } from 'vue'
 //暂时不知道用来干什么的
 //实现来看是传递给子组件的
 defineProps({
@@ -22,7 +22,14 @@ defineProps({
 })
 
 //定义双向绑定数据
-const state = reactive({ count: 0 })
+const state = reactive({ count: 0 ,msg : '组合api的段落描述',childMsg : '提供给组件inject使用的信息'});
+const childMsg = ref('提供给组件inject使用的信息')
+provide('childMsg',childMsg);
+
+setTimeout(()=>{
+  state.msg = '组合api的段落描述++';
+  childMsg.value = '提供给组件inject使用的信息++';
+},100)
 </script>
 
 <style scoped>

@@ -3,14 +3,32 @@
     <h1>监听器-watch</h1>
     <p>count1: {{data.count1}}</p>
     <p>count2: {{data.count2}}</p>
+    <p>{{childMsg}}</p>
   </section>
 </template>
 
 <script>
-import {reactive,watch} from 'vue';
+import {reactive,watch,toRefs,toRef,inject,ref} from 'vue';
 export default {
-  setup(){
+  props : {
+    count : {
+      type : Number
+    }
+  },
+  setup(props){
     const data = reactive({count1:1,count2:1,timer:null});
+    // 使用 `toRefs` 创建对prop的 `count` property 的响应式引用
+    const {count} = toRefs(props);
+    //监听外部count变化
+    watch(count,(value)=>{
+      console.log('watch props count:',value);
+    })
+    const msg = toRef(props,'msg');
+    watch(msg,()=>{
+      alert(1)
+      console.log('watch props msg:',msg);
+    });
+    const childMsg = ref(inject('childMsg'));
     //只有数据发生改变的时候才会触发watch
     //监听data
     watch(data,()=>{
@@ -29,7 +47,7 @@ export default {
         data.timer = null;
       }
     },1000);
-    return {data};
+    return {data,childMsg};
   }
 }
 </script>
