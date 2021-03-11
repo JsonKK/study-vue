@@ -21,6 +21,11 @@
   },
   "eslintConfig": {
     "root": true,
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
     "rules": {
       "no-console": "off",
       "vue/no-use-v-if-with-v-for": [

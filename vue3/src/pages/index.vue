@@ -51,7 +51,7 @@
           {
             name : 'dynamic_component',
             path : '/index/dynamic_component',
-            title : 'dynamic_component'
+            title : '异步组件'
           },
           {
             name : 'ref',

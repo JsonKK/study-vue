@@ -13,11 +13,21 @@
   <keep-alive>
     <component :is="comps[actived]"></component>
   </keep-alive>
-  
+  <component
+    is="myD"
+    level="2"
+    msg="组件函数"
+  >
+  </component>
+  <!-- <component :is="'myE'" /> -->
+  <component is="myF" />
 </template>
 
 <script>
-  import {reactive,toRefs,defineAsyncComponent,markRaw} from 'vue';
+  import {reactive,toRefs,defineAsyncComponent,markRaw,getCurrentInstance,inject} from 'vue';
+  import myD from 'comps/dynamic_component/d.vue';
+  // import myE from 'comps/dynamic_component/e.vue';
+  import myF from 'comps/dynamic_component/f.vue';
   const data = reactive({
     tabs : [
       {
@@ -45,8 +55,17 @@
   }
   export default {
     name: 'dynamic_component',
+    components : {myD,myF},
     setup(){
-      
+      //获取挂载全局的属性
+      const {proxy} = getCurrentInstance();
+      console.log(proxy.$userInfo);
+      // 通过inject属性获取挂载数据
+      const testUserInfo = inject('$testUserInfo');
+      console.log(testUserInfo);
+      //修改数据，其他组件可以获取到最新数据
+      testUserInfo.testId += 1;
+
       return {...toRefs(data),comps,changeli};
     }
   }

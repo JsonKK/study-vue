@@ -19,7 +19,7 @@
  
 <script>
   import child from 'comps/child.vue';;
-  import {ref} from 'vue';
+  import {ref,inject,nextTick} from 'vue';
   export default {
     name: 'teleport',
     components: {child},
@@ -29,6 +29,14 @@
     },
     setup(){
       let modalOpen = ref(false);
+      //获取全局属性
+      const testUserInfo = inject('$testUserInfo');
+      console.log(testUserInfo);
+
+      //dom渲染后执行方法
+      nextTick(()=>{
+        console.log('dom已经渲染完成！');
+      })
       return{
         modalOpen
       }
