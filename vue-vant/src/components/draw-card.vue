@@ -35,6 +35,14 @@
         console.log(JSON.stringify(data) + '2');
       })
     },
+    watch:{
+      show(value){
+        if(value){
+          //触发父组件的自定义方法
+          this.$parent.$emit('custom-event','翻牌信息')
+        }
+      }
+    },
     computed:{},
     methods:{}
   }

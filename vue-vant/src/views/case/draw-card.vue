@@ -4,11 +4,11 @@
       <div slot="front-card" class="front-card"></div>
       <div slot="back-card" class="back-card"></div>
     </m-draw-card>
-    <m-draw-card :show="turn">
+    <m-draw-card :show="turn" :width="100" :height="150">
       <div slot="front-card" class="front-card"></div>
       <div slot="back-card" class="back-card"></div>
     </m-draw-card>
-    <button class="btn-test" @click="turn = !turn">牌面</button>
+    <button class="btn-test" @click="turn = !turn">翻牌</button>
   </div>
   
 </template>
@@ -30,6 +30,11 @@
     mounted(){
       utils.getUserInfo().then((data)=>{
         console.log(JSON.stringify(data) + '1');
+      })
+
+      //定义自定义监听方法来接收事件参数
+      this.$on('custom-event',(msg)=>{
+        console.log(msg);
       })
     },
     computed:{},
