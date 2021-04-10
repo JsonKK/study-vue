@@ -1,12 +1,12 @@
 <template>
   <section class="watchEffect">
     <h1>watchEffect - 侦听器</h1>
-    <p>{{data.count}}</p>
+    <p>{{count}}</p>
   </section>
 </template>
 
 <script>
-import {reactive,watchEffect} from 'vue';
+import {reactive,watchEffect,toRefs} from 'vue';
 export default {
   setup(){
     const data = reactive({count:0,timer:null});
@@ -21,7 +21,7 @@ export default {
         data.timer = null;
       }
     },1000);
-    return {data};
+    return {...toRefs(data)};
   }
 }
 </script>
