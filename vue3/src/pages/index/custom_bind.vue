@@ -2,6 +2,7 @@
   <div class="main">
     <h1>使用自定义元素标题</h1>
     <section v-highlight="lightColor">使用自定属性的元素节点{{count}}</section>
+    <ul class="ul-list" v-touch="onTouch"></ul>
   </div>
 </template>
 
@@ -40,23 +41,30 @@
         return colors[index];
       }
 
+      const onTouch = function(e){
+        console.log(e)
+      }
+
       data.lightColor = getColor(data.colors);
 
       timer = setInterval(()=>{
         data.count++;
         data.lightColor = getColor(data.colors);
         console.log(data.lightColor);
-        if(data.count > 30){
+        if(data.count > 3){
           clearInterval(timer);
           timer = null;
         }
       },1000)
 
-      return {...toRefs(data)};
+      return {...toRefs(data),onTouch};
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  
+  .ul-list{
+    width: 100%;
+    min-height: 120px;
+  }
 </style>
