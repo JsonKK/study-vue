@@ -17,15 +17,21 @@
     render: function (createElement) {
       //第一个参数类型
       //字符串： 代表标签名称
-
+      //第二个参数可以是子组件也可以数属性
       //第二个参数是子节点
       //第二个参数类型
       //字符串： 以文本形式渲染
       //数组: 包含多个子节点
       return createElement(
         'h' + this.level,   // 标签名称
+        {
+          style : {
+            color : '#212121'
+          }
+        },
         // 子节点数组
         [
+          createElement('p',this.$slots.name),
           createElement('p',this.$slots.default),
           createElement('span','副标题'),
           createElement('div',{

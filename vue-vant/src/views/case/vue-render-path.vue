@@ -1,11 +1,12 @@
 <template>
   <div id="xixihaha">
     <m-render :level="2">
-      渲染函数标签
+      渲染函数默认slot
+      <span slot="name">渲染函数key为name slot</span>
     </m-render>
-    <button @click="showToast">触发吐司</button>
+    <!-- <button @click="showToast">触发吐司</button>
     <button @click="showComfirm">触发确认弹窗</button>
-    <button @click="showComfirmComponents">触发组件版的确认弹窗</button>
+    <button @click="showComfirmComponents">触发组件版的确认弹窗</button> -->
     <comfirm title="标题" content="内容哈哈哈哈哈哈哈哈哈" ok-text="a" v-model="showComfirm2"></comfirm>
   </div>
 </template>
