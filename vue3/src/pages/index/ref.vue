@@ -1,5 +1,7 @@
 <template>
-  <div v-for="item in list" :ref="setItemRef"></div>
+  <div v-for="(item,index) in list" :ref="setItemRef">
+    <p>title:{{item.title}};index:{{index}}</p>
+  </div>
   <child ref="childRef"/>
   <p>{{msg}}</p>
   <son ref="sonRef"/>
@@ -30,6 +32,7 @@
     setup() {
       //不定项数组ref，后续跟进用法
       let itemRefs = []
+      // 设置动态ref
       const setItemRef = el => {
         if (el) {
           itemRefs.push(el)

@@ -62,6 +62,11 @@
             name : 'custom_bind',
             path : '/index/custom_bind',
             title : '自定义属性'
+          },
+          {
+            name : 'render',
+            path : '/index/render',
+            title : '渲染函数'
           }
         ]
       }

@@ -48,6 +48,11 @@ const router = createRouter({
           name : 'custom_bind',
           path : '/index/custom_bind',
           component : ()=>import('@/pages/index/custom_bind.vue')
+        },
+        {
+          name : 'render',
+          path : '/index/render',
+          component : ()=>import('@/pages/index/render.vue')
         }
       ]
     },
