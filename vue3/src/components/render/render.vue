@@ -23,7 +23,10 @@ export default {
             //提交事件，需要在emits中申明
             that.$emit('update:value',text)
           }
-        }) 
+        }),
+        h('div',{
+          innerHTML : '<em>内容</em>'
+        })
       ] 
       
     )
