@@ -8,7 +8,6 @@
         type : Number
       }
     },
-    components: {},
     methods : {
       getTime(){
         console.log(new Date());
@@ -55,7 +54,7 @@
             },
             // DOM property
             domProps: {
-              innerHTML: 'div'
+              innerHTML: '<em>div</em>'
             },
             on:{
               click(e){

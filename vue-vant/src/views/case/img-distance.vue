@@ -38,7 +38,6 @@
     max-width: 100%;
     min-width: .1vh;
     height: auto;
-    vertical-align: top;
     transition: all ease .3s;
     padding-bottom: 0;
   }
