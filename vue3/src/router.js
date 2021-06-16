@@ -57,6 +57,19 @@ const router = createRouter({
       ]
     },
     {
+      path: '/case',
+      name: 'case',
+      component: ()=>import('@/pages/case.vue'),
+      redirect: '/case/barrage',
+      children: [
+        {
+          name: 'caseBarrage',
+          path: '/case/barrage',
+          component: ()=>import('@/pages/case/barrage.vue')
+        }
+      ]
+    },
+    {
       path: '/:catchAll(.*)',
       redirect : '/index'
     }
