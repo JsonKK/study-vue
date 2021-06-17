@@ -66,6 +66,11 @@ const router = createRouter({
           name: 'caseBarrage',
           path: '/case/barrage',
           component: ()=>import('@/pages/case/barrage.vue')
+        },
+        {
+          name: 'caseSwiper',
+          path: '/case/swiper',
+          component: ()=>import('@/pages/case/swiper.vue')
         }
       ]
     },

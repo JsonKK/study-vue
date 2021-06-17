@@ -26,6 +26,11 @@
             name : 'caseBarrage',
             path : '/case/barrage',
             title : '弹幕'
+          },
+          { 
+            name : 'caseSwiper',
+            path : '/case/swiper',
+            title : '轮播'
           }
         ]
       }

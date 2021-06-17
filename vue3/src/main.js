@@ -12,5 +12,5 @@ app.config.globalProperties.$userInfo = {
 app.provide('$testUserInfo',{
   testId : parseInt(Math.random() * 899999) + 100000
 });
-app.use(router).use(VTouch)
+app.use(router).use(VTouch);
 app.mount('#app')
